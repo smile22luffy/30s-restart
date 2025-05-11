@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30代の健康管理術：人生やり直しのための最高の「健康投資」｜30代からの再スタート</title>
+    <meta name="description" content="心と体の健康は、人生を再スタートするための最も重要な資本。30代から始めるべきストレス管理法、運動習慣、食生活改善のポイントを徹底解説。賢い健康投資で未来を変える。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2979ff;
+            --primary-dark-color: #1c54b2;
+            --secondary-color: #ffab00;
+            --secondary-dark-color: #e69500;
+            --accent-color-green: #4caf50; /* 健康・運動・食事 */
+            --accent-color-green-dark: #2e7d32;
+            --accent-color-blue: #03a9f4;  /* ストレス管理・メンタル */
+            --accent-color-orange: #ff9800;/* 注意点・サプリ */
+            --text-color: #333;
+            --light-text-color: #555;
+            --background-color: #f7f9fc;
+            --card-background-color: #ffffff;
+            --border-color: #e0e0e0;
+            --light-blue-bg: #e3f2fd;
+            --light-green-bg: #e8f8f5;
+            --light-yellow-bg: #fffde7; /* 注意点・サプリ */
+
+            --font-family-base: 'Noto Sans JP', sans-serif;
+            --font-family-heading: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+
+            --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --box-shadow-strong: 0 8px 25px rgba(0, 0, 0, 0.12);
+            --border-radius-base: 10px;
+            --transition-base: all 0.3s ease-in-out;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-family-base); color: var(--text-color);
+            line-height: 1.8; background-color: var(--background-color);
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ヘッダー（最初のバージョンから流用） */
+        header { background-color: var(--card-background-color); color: var(--text-color); padding: 1rem 1.5rem; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: var(--transition-base); }
+        header.scrolled { padding: 0.75rem 1.5rem; box-shadow: var(--box-shadow-light); }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 700; font-family: var(--font-family-heading); color: var(--primary-color); text-decoration: none; }
+        .nav-menu { display: flex; list-style: none; gap: 2.2rem; margin: 0; }
+        .nav-menu a { color: var(--light-text-color); text-decoration: none; font-weight: 500; font-family: var(--font-family-base); font-size: 0.95rem; transition: color 0.3s; position: relative; padding-bottom: 0.3rem; }
+        .nav-menu a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width 0.3s ease-out; }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--primary-color); }
+        .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+
+
+        main {
+            margin-top: 90px; max-width: 800px; margin-left: auto; margin-right: auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .article-header {
+            background: var(--card-background-color); padding: 2.5rem 2rem;
+            border-radius: var(--border-radius-base); margin-bottom: 2.5rem;
+            box-shadow: var(--box-shadow-light); border-top: 5px solid var(--accent-color-green); /* 健康テーマなので緑 */
+        }
+        .article-header h1 {
+            color: var(--accent-color-green-dark); margin-bottom: 1rem;
+            font-family: var(--font-family-heading); font-size: 2.2rem;
+            line-height: 1.4; font-weight: 800; text-align: center;
+        }
+        .article-meta {
+            color: var(--light-text-color); font-size: 0.9rem; display: flex; justify-content:center;
+            flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;
+        }
+        .article-meta span::before { margin-right: 0.4em; opacity: 0.7; }
+        .article-meta span:nth-child(1)::before { content: '📅'; }
+        .article-meta span:nth-child(2)::before { content: '✍️'; }
+        .article-meta span:nth-child(3)::before { content: '👤'; }
+        .article-header > p { font-size: 1.05rem; line-height: 1.7; color: var(--text-color); text-align: center;}
+
+        /* 目次スタイルは他の記事ページから流用 */
+        .toc { background: var(--light-green-bg); padding: 1.5rem; border-radius: var(--border-radius-base); margin-bottom: 2.5rem; border: 1px solid var(--accent-color-green); }
+        .toc h3 { font-family: var(--font-family-heading); color: var(--accent-color-green-dark); margin-bottom: 1rem; font-size: 1.3rem; text-align: center; }
+        .toc ul { list-style: none; padding-left: 0; } .toc li { margin-bottom: 0.5rem; }
+        .toc a { color: var(--accent-color-green-dark); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+        .toc a:hover { text-decoration: underline; }
+
+
+        .article-content {
+            background: var(--card-background-color); padding: 2rem 2.5rem;
+            border-radius: var(--border-radius-base); box-shadow: var(--box-shadow-light);
+            margin-bottom: 2.5rem;
+        }
+        .article-content h2 { color: var(--primary-dark-color); margin-top: 2.5rem; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 3px solid var(--primary-color); font-family: var(--font-family-heading); font-size: 1.8rem; font-weight: 700; }
+        .article-content h2:first-of-type { margin-top: 0; }
+        .article-content h3 { color: var(--primary-color); margin-top: 2rem; margin-bottom: 1rem; font-family: var(--font-family-heading); font-size: 1.5rem; font-weight: 700; padding-left: 0.8em; border-left: 5px solid var(--primary-color); }
+        .article-content h4 { color: var(--primary-dark-color); margin-top: 1.5rem; margin-bottom: 0.8rem; font-family: var(--font-family-heading); font-size: 1.2rem; font-weight: 700; }
+        .article-content p, .article-content ul, .article-content ol { margin-bottom: 1.2rem; font-size: 1rem; }
+        .article-content ul, .article-content ol { padding-left: 1.5em; }
+        .article-content strong { font-weight: 700; color: var(--accent-color-green-dark); background: linear-gradient(transparent 60%, rgba(76, 175, 80, 0.2) 60%); }
+        .article-content a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+        .article-content a:hover { text-decoration: underline; }
+
+        .health-importance-box { /* 健康の重要性 */
+            background: var(--light-green-bg); border-left: 5px solid var(--accent-color-green);
+            padding: 1.5rem 2rem; margin: 2rem auto;
+            border-radius: 0 var(--border-radius-base) var(--border-radius-base) 0;
+            max-width: 95%; box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+        }
+        .health-importance-box p { font-size: 1.1rem !important; color: var(--accent-color-green-dark); margin-bottom: 0 !important; line-height: 1.7;}
+        .health-importance-box p strong { background:none; }
+
+        .stress-management-section, .exercise-habits-section, .diet-improvement-section {
+            padding: 1.5rem; margin: 2rem 0; border-radius: var(--border-radius-base);
+            border-width: 1px; border-style: solid;
+        }
+        .stress-management-section { background: var(--light-blue-bg); border-color: var(--accent-color-blue); }
+        .exercise-habits-section { background: var(--light-green-bg); border-color: var(--accent-color-green); }
+        .diet-improvement-section { background: var(--light-yellow-bg); border-color: var(--accent-color-orange); }
+
+        .stress-management-section h3, .exercise-habits-section h3, .diet-improvement-section h3 {
+            margin-top:0 !important; margin-bottom: 1.2rem !important; font-family: var(--font-family-heading);
+            font-size: 1.4rem !important; display: flex; align-items: center;
+            padding-left:0 !important; border-left:none !important; /* h3デフォルトを上書き */
+        }
+        .stress-management-section h3 { color: var(--accent-color-blue) !important; }
+        .exercise-habits-section h3 { color: var(--accent-color-green-dark) !important; }
+        .diet-improvement-section h3 { color: var(--accent-color-orange-dark) !important; }
+
+        .stress-management-section h3::before { content: '🧘'; margin-right: 0.5em; font-size: 1.3em; }
+        .exercise-habits-section h3::before { content: '🏃'; margin-right: 0.5em; font-size: 1.3em; }
+        .diet-improvement-section h3::before { content: '🥗'; margin-right: 0.5em; font-size: 1.3em; }
+
+        .tip-card { /* 各セクション内の具体的な方法カード */
+            background: var(--card-background-color); border: 1px solid var(--border-color);
+            padding: 1.2rem; border-radius: 6px; margin-bottom: 1rem;
+            box-shadow: var(--box-shadow-light);
+        }
+        .tip-card h4 { color: var(--text-color) !important; margin-top:0 !important; margin-bottom: 0.5rem !important; font-size:1.15rem !important;}
+        .tip-card p { font-size:0.95rem; color:var(--light-text-color); margin-bottom:0;}
+
+
+        .supplement-info-box { /* サプリメント情報 (YMYL注意) */
+            background: var(--light-yellow-bg); border: 1px solid var(--accent-color-orange);
+            padding: 1.5rem; margin: 2.5rem 0; border-radius: var(--border-radius-base);
+        }
+        .supplement-info-box h3 {
+            color: var(--accent-color-orange-dark) !important; border-left-color: var(--accent-color-orange-dark) !important;
+        }
+        .supplement-info-box .disclaimer { /* 免責事項 */
+            font-size: 0.85rem; color: var(--light-text-color);
+            border-top: 1px dashed var(--accent-color-orange); padding-top: 1rem; margin-top: 1.5rem;
+            text-align: center;
+        }
+        .supplement-info-box .affiliate-link-supplement {
+            display: inline-block; background: var(--accent-color-orange); color: white !important;
+            padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none;
+            font-weight: 700; font-size: 0.9rem; margin-top: 1rem;
+            text-align: center; transition: background-color 0.2s;
+        }
+        .supplement-info-box .affiliate-link-supplement:hover { background-color: var(--accent-color-orange-dark); }
+
+
+        .final-call-to-action { /* 最後の行動喚起 */
+            background: var(--accent-color-green); color: white;
+            padding: 2.5rem 2rem; border-radius: var(--border-radius-base);
+            text-align: center; margin: 3rem 0; box-shadow: var(--box-shadow-strong);
+        }
+        .final-call-to-action h2 {
+            color: white; margin-bottom: 1rem; font-family: var(--font-family-heading);
+            font-size: 1.8rem; border-bottom: none; padding-bottom:0;
+        }
+        .final-call-to-action p { font-size: 1.05rem; opacity: 0.9; margin-bottom: 1.5rem;}
+        .final-call-to-action .cta-button { /* 最初のCTAボタン流用 */
+            background: white; color: var(--accent-color-green);
+        }
+         .final-call-to-action .cta-button:hover {
+            background: #f0f0f0; color: var(--accent-color-green-dark);
+        }
+
+
+        .ad-space, .related-articles, footer { /* 前回の記事ページから流用 */ }
+        .ad-space { background: var(--card-background-color); border: 1px dashed var(--border-color); padding: 2.2rem; text-align: center; margin: 3rem auto; color: #aaa; border-radius: var(--border-radius-base); max-width: 728px;}
+        .related-articles { background: var(--card-background-color); padding: 2rem; border-radius: var(--border-radius-base); box-shadow: var(--box-shadow-light); margin: 2.5rem 0; }
+        .related-articles h3 { color: var(--primary-dark-color); margin-bottom: 1.5rem; font-family: var(--font-family-heading); font-size: 1.4rem; text-align: center; }
+        .related-articles ul { list-style: none; padding-left: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:1rem;}
+        .related-articles li { border-bottom: none; padding-bottom: 0; }
+        .related-articles a { color: var(--primary-color); text-decoration: none; font-weight: 500; display: block; padding:0.5rem; background-color:var(--light-blue-bg); border-radius:6px; text-align:center; transition: var(--transition-base);}
+        .related-articles a:hover { text-decoration: none; color: white; background-color:var(--primary-color); transform:scale(1.03);}
+        footer { background: #333740; color: #bdc3c7; padding: 3rem 0 1.5rem; margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; padding: 0 1.5rem; }
+        .footer-content p { color: #95a5a6; font-size: 0.9rem; }
+        .footer-content .footer-links a { color: #bdc3c7; text-decoration: none; margin: 0 0.5rem; transition: color 0.3s; }
+        .footer-content .footer-links a:hover { color: var(--primary-color); }
+
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            main { padding: 1.5rem 1rem; }
+            .article-header { padding: 2rem 1.5rem; }
+            .article-header h1 { font-size: 1.8rem; }
+            .article-content { padding: 1.5rem; }
+            .article-content h2 { font-size: 1.6rem; }
+            .article-content h3 { font-size: 1.3rem; }
+        }
+        body { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    </style>
+</head>
+<body>
+    <header id="siteHeader">
+        <nav>
+            <div class="logo">30代からの再スタート</div>
+            <!-- <button class="menu-toggle">☰</button> -->
+            <ul class="nav-menu">
+                <li><a href="../index.html">ホーム</a></li>
+                <li><a href="../start-here/roadmap.html">はじめに</a></li>
+                <li><a href="../career-reinvention/30s-career-strategy.html">キャリア</a></li>
+                <li><a href="../money-finance/30s-money-problems.html">お金</a></li>
+                <li><a href="30s-reset-relationships.html" class="active">ライフスタイル</a></li> <!-- 現在地をactiveに -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-header">
+                <h1>30代の健康管理術：人生やり直しのための最高の「健康投資」戦略</h1>
+                <div class="article-meta">
+                    <span>公開日：2025年5月28日</span> <!-- 仮の日付 -->
+                    <span>更新日：2025年6月12日</span> <!-- 仮の日付 -->
+                    <span>著者：田中 正樹</span>
+                </div>
+                <p>人生を再スタートし、新しい目標に向かってエネルギッシュに活動するためには、何よりもまず「心と体の健康」が不可欠です。30代は、仕事や家庭で責任が増し、知らず知らずのうちに無理を重ねがちな年代。このページでは、忙しい30代でも実践できる具体的なストレス管理法、無理なく続けられる運動習慣の作り方、そして内側から活力を生み出す食生活改善のポイントまで、「健康」という最高の自己投資で未来を切り拓くための戦略を徹底解説します。</p>
+            </header>
+
+             <!-- 目次 (仮) -->
+            <nav class="toc" aria-labelledby="toc-heading">
+                <h3 id="toc-heading">この記事の目次</h3>
+                <ul>
+                    <li><a href="#introduction-health">なぜ30代にとって「健康」が最強の資本なのか？</a></li>
+                    <li><a href="#stress-management">心の健康が第一歩！30代のための実践的ストレス管理法5選</a></li>
+                    <li><a href="#exercise-habits">運動嫌いでも大丈夫！無理なく続く運動習慣の作り方</a>
+                        <ul>
+                            <li><a href="#easy-exercise">今日からできる簡単エクササイズ</a></li>
+                            <li><a href="#making-time-exercise">忙しい日々の運動時間確保術</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#diet-improvement">体が変わる！30代からの食生活改善7つのポイント</a></li>
+                    <li><a href="#supplement-caution">サプリメントとの賢い付き合い方（YMYL領域としての注意点）</a></li>
+                    <li><a href="#health-investment-summary">まとめ：健康は1日にしてならず。30代からの継続的な健康投資が未来を創る</a></li>
+                </ul>
+            </nav>
+
+            <div class="health-importance-box">
+                <p><strong>「健全なる精神は健全なる肉体に宿る」</strong><br>
+                この古代ローマの言葉は、現代社会を生きる私たちにとっても、変わらぬ真実を伝えています。特に人生の転換期にある30代にとって、心身の健康は、新しい挑戦を成功させるための最も重要な土台となるのです。</p>
+            </div>
+
+            <div class="ad-space">
+                [Google AdSense 広告スペース]
+            </div>
+
+            <section class="article-content">
+                <h2 id="introduction-health">なぜ30代にとって「健康」が最強の資本なのか？</h2>
+                <p>30代は、20代の頃のような体力任せが通用しなくなり、少しずつ心身の変化を感じ始める年代です。仕事では責任ある立場になり、プライベートでは結婚や子育てといったライフイベントも重なります。このような多忙な日々の中で、健康管理を怠ってしまうと、気づかぬうちにパフォーマンスが低下し、最悪の場合、大きな病気につながる可能性も否定できません。</p>
+                <p>逆に言えば、30代から意識的に「健康投資」を行うことで、以下のような大きなメリットが得られます。</p>
+                <ul>
+                    <li><strong>生産性の向上：</strong>集中力や思考力が高まり、仕事や学習の効率が格段にアップします。</li>
+                    <li><strong>精神的な安定：</strong>ストレス耐性が向上し、前向きな気持ちで物事に取り組めるようになります。</li>
+                    <li><strong>病気リスクの低減：</strong>生活習慣病などを予防し、将来的な医療費の削減にも繋がります。</li>
+                    <li><strong>自己肯定感の向上：</strong>健康的な生活を送ることで、自分自身への自信が深まります。</li>
+                    <li><strong>人生の充実度アップ：</strong>エネルギッシュに活動できることで、趣味や人との交流もより楽しめます。</li>
+                </ul>
+                <p>つまり、30代からの健康管理は、目先の体調を整えるだけでなく、<strong>長期的な視点で人生全体の質を高めるための「最高の自己投資」</strong>と言えるのです。</p>
+
+                <h2 id="stress-management">心の健康が第一歩！30代のための実践的ストレス管理法5選</h2>
+                <p>現代社会において、ストレスは避けて通れないものです。特に責任が増す30代は、仕事、家庭、将来への不安など、様々なストレスに晒されがち。上手にストレスと付き合い、心の健康を保つための具体的な方法をご紹介します。</p>
+                <div class="stress-management-section">
+                    <h3>今日からできる！簡単ストレス解消＆メンタルケア</h3>
+                    <div class="tip-card">
+                        <h4>1. 質の高い睡眠を確保する</h4>
+                        <p>睡眠不足は万病のもと。毎日7～8時間の睡眠を目指し、寝る前のスマホ操作を控える、寝室環境を整えるなど、睡眠の質を高める工夫をしましょう。</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>2. マインドフルネス・瞑想を取り入れる</h4>
+                        <p>1日5分でもOK。静かな場所で目を閉じ、呼吸に意識を集中することで、心が落ち着き、ストレスが軽減されます。専用アプリも多数あります。</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>3. 自然と触れ合う時間を作る</h4>
+                        <p>週末は公園を散歩する、緑の多い場所へ出かけるなど、自然の中で過ごす時間は心身をリフレッシュさせてくれます。太陽光を浴びることも大切。</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>4. 趣味や好きなことに没頭する</h4>
+                        <p>仕事や家庭のことを忘れ、純粋に楽しめる時間を持つことは、最高のストレス解消法です。どんな些細なことでも構いません。</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>5. 信頼できる人に話を聞いてもらう</h4>
+                        <p>悩みや不安を一人で抱え込まず、家族、友人、同僚など、信頼できる人に話を聞いてもらいましょう。話すだけで気持ちが楽になることもあります。時には専門家のカウンセリングも有効です。</p>
+                    </div>
+                </div>
+
+                <!-- 運動習慣、食生活改善などのコンテンツを充実させていく -->
+
+                <div class="supplement-info-box" id="supplement-caution"> <!-- idは仮 -->
+                    <h3>サプリメントとの賢い付き合い方（YMYL領域としての注意点）</h3>
+                    <p>忙しい30代にとって、日々の食事だけでは不足しがちな栄養素を補うために、サプリメントの活用を考える方もいるでしょう。確かに、適切に使えば健康維持の助けになる可能性があります。しかし、サプリメントはあくまで「栄養補助食品」であり、薬ではありません。</p>
+                    <h4>サプリメント利用時の重要ポイント</h4>
+                    <ul>
+                        <li><strong>基本はバランスの取れた食事：</strong>サプリメントは食事の代わりにはなりません。まずは食生活の改善を優先しましょう。</li>
+                        <li><strong>過剰摂取に注意：</strong>特定の栄養素を過剰に摂取すると、かえって健康を害する場合があります。用法・用量を必ず守りましょう。</li>
+                        <li><strong>品質と安全性の確認：</strong>信頼できるメーカーの、品質管理がしっかりした製品を選びましょう。安価すぎるものには注意が必要です。</li>
+                        <li><strong>情報源の確認：</strong>インターネット上の誇大な広告や個人の体験談だけを鵜呑みにせず、医師や管理栄養士など専門家の意見も参考にしましょう。</li>
+                        <li><strong>薬との飲み合わせ：</strong>持病がある方や薬を服用中の方は、必ず医師や薬剤師に相談してから利用してください。</li>
+                    </ul>
+                    <p>もし特定の栄養素の不足が気になる場合は、まずは血液検査などで自分の状態を把握し、医師や管理栄養士に相談の上で、必要なサプリメントを検討するのが賢明です。</p>
+                    <p style="text-align:center; margin-top:1.5rem;">
+                        <a href="https://example.com/supplements-af" class="affiliate-link-supplement" target="_blank" rel="noopener noreferrer">信頼できるサプリメント情報サイトを見る (アフィリエイトリンク例)</a>
+                    </p>
+                    <div class="disclaimer">
+                        <strong>【免責事項】</strong><br>
+                        当サイトの情報は、健康に関する一般的な情報提供を目的としており、個別の医学的アドバイスではありません。サプリメントの利用を含む健康管理については、必ず医師や専門家にご相談ください。当サイトの情報に基づいて生じたいかなる損害についても、運営者は一切の責任を負いかねます。
+                    </div>
+                </div>
+
+
+                <div class="final-call-to-action" id="health-investment-summary"> <!-- idは仮 -->
+                    <h2>健康は1日にしてならず。30代からの継続的な「健康投資」が、輝く未来を創る！</h2>
+                    <p>30代の健康管理は、短期的な結果を求めるものではありません。日々の小さな積み重ねが、10年後、20年後のあなたの心と体の状態を大きく左右します。今日からできることから少しずつ始め、それを習慣化していくこと。それこそが、人生100年時代を豊かに生き抜くための、最も賢明で確実な「健康投資」です。</p>
+                    <a href="../start-here/roadmap.html" class="cta-button">健康的な人生再スタート計画を立てる</a>
+                </div>
+            </section>
+
+            <div class="ad-space">
+                [Google AdSense 広告スペース]
+            </div>
+
+            <section class="related-articles">
+                <h3>心と体の健康を考えるためのおすすめ記事</h3>
+                <ul>
+                    <li><a href="30s-mental-health.html">30代のメンタルヘルスケア：ストレスに負けない心の作り方</a> <!-- 新規ページ想定 -->
+                    <li><a href="../money-finance/30s-how-to-use-money.html">人生を豊かにする30代のお金の使い方：健康への投資も忘れずに</a></li>
+                    <li><a href="30s-kosodate-restart.html">30代・子持ちの人生やり直し術：家族みんなで健康に</a></li>
+                    <li><a href="../start-here/roadmap.html">30代人生やり直し 完全ロードマップ</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <span id="currentYearFooter"></span> 30代からの再スタート. All rights reserved.</p>
+            <p class="footer-links" style="margin-top: 0.8rem;">
+                <a href="../contact.html">お問い合わせ</a> |
+                <a href="../privacy-policy.html">プライバシーポリシー</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        // ヘッダーのスクロールエフェクト
+        const header = document.getElementById('siteHeader');
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+        // フッターの年号を動的に
+        const yearSpanFooter = document.getElementById('currentYearFooter');
+        if (yearSpanFooter) {
+            yearSpanFooter.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>

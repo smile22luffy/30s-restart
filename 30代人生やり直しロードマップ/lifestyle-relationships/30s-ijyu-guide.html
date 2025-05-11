@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30代からの移住ガイド：地方移住のリアルと成功の秘訣｜30代からの再スタート</title>
+    <meta name="description" content="都会を離れ、地方で新しい生活を始めたい30代へ。移住のメリット・デメリット、仕事の見つけ方、失敗しないための準備チェックリスト、移住者のリアルな体験談を徹底解説。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2979ff;
+            --primary-dark-color: #1c54b2;
+            --secondary-color: #ffab00;
+            --secondary-dark-color: #e69500;
+            --accent-color-green: #4caf50; /* 自然・メリット */
+            --accent-color-orange: #ff9800;/* 注意点・デメリット */
+            --accent-color-blue: #03a9f4;  /* 準備・仕事 */
+            --text-color: #333;
+            --light-text-color: #555;
+            --background-color: #f7f9fc;
+            --card-background-color: #ffffff;
+            --border-color: #e0e0e0;
+            --light-blue-bg: #e3f2fd;
+            --light-green-bg: #e8f8f5;  /* メリット・体験談 */
+            --light-yellow-bg: #fffde7; /* 注意点 */
+            --light-orange-bg: #fff3e0; /* デメリット */
+
+            --font-family-base: 'Noto Sans JP', sans-serif;
+            --font-family-heading: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+
+            --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --box-shadow-strong: 0 8px 25px rgba(0, 0, 0, 0.12);
+            --border-radius-base: 10px;
+            --transition-base: all 0.3s ease-in-out;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-family-base); color: var(--text-color);
+            line-height: 1.8; background-color: var(--background-color);
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ヘッダー（最初のバージョンから流用） */
+        header { background-color: var(--card-background-color); color: var(--text-color); padding: 1rem 1.5rem; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: var(--transition-base); }
+        header.scrolled { padding: 0.75rem 1.5rem; box-shadow: var(--box-shadow-light); }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 700; font-family: var(--font-family-heading); color: var(--primary-color); text-decoration: none; }
+        .nav-menu { display: flex; list-style: none; gap: 2.2rem; margin: 0; }
+        .nav-menu a { color: var(--light-text-color); text-decoration: none; font-weight: 500; font-family: var(--font-family-base); font-size: 0.95rem; transition: color 0.3s; position: relative; padding-bottom: 0.3rem; }
+        .nav-menu a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width 0.3s ease-out; }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--primary-color); }
+        .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+
+
+        main {
+            margin-top: 90px; max-width: 800px; margin-left: auto; margin-right: auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .article-header {
+            background: var(--card-background-color); padding: 2.5rem 2rem;
+            border-radius: var(--border-radius-base); margin-bottom: 2.5rem;
+            box-shadow: var(--box-shadow-light); border-top: 5px solid var(--accent-color-green); /* 移住・自然の緑 */
+        }
+        .article-header h1 {
+            color: var(--accent-color-green-dark); margin-bottom: 1rem;
+            font-family: var(--font-family-heading); font-size: 2.2rem;
+            line-height: 1.4; font-weight: 800; text-align: center;
+        }
+        .article-meta {
+            color: var(--light-text-color); font-size: 0.9rem; display: flex; justify-content:center;
+            flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;
+        }
+        .article-meta span::before { margin-right: 0.4em; opacity: 0.7; }
+        .article-meta span:nth-child(1)::before { content: '📅'; }
+        .article-meta span:nth-child(2)::before { content: '✍️'; }
+        .article-meta span:nth-child(3)::before { content: '👤'; }
+        .article-header > p { font-size: 1.05rem; line-height: 1.7; color: var(--text-color); text-align: center;}
+
+        /* 目次スタイルは他の記事ページから流用 */
+        .toc { background: var(--light-green-bg); padding: 1.5rem; border-radius: var(--border-radius-base); margin-bottom: 2.5rem; border: 1px solid var(--accent-color-green); }
+        .toc h3 { font-family: var(--font-family-heading); color: var(--accent-color-green-dark); margin-bottom: 1rem; font-size: 1.3rem; text-align: center; }
+        .toc ul { list-style: none; padding-left: 0; } .toc li { margin-bottom: 0.5rem; }
+        .toc a { color: var(--accent-color-green-dark); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+        .toc a:hover { text-decoration: underline; }
+
+
+        .article-content {
+            background: var(--card-background-color); padding: 2rem 2.5rem;
+            border-radius: var(--border-radius-base); box-shadow: var(--box-shadow-light);
+            margin-bottom: 2.5rem;
+        }
+        .article-content h2 { color: var(--primary-dark-color); margin-top: 2.5rem; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 3px solid var(--primary-color); font-family: var(--font-family-heading); font-size: 1.8rem; font-weight: 700; }
+        .article-content h2:first-of-type { margin-top: 0; }
+        .article-content h3 { color: var(--primary-color); margin-top: 2rem; margin-bottom: 1rem; font-family: var(--font-family-heading); font-size: 1.5rem; font-weight: 700; padding-left: 0.8em; border-left: 5px solid var(--primary-color); }
+        .article-content h4 { color: var(--primary-dark-color); margin-top: 1.5rem; margin-bottom: 0.8rem; font-family: var(--font-family-heading); font-size: 1.2rem; font-weight: 700; }
+        .article-content p, .article-content ul, .article-content ol { margin-bottom: 1.2rem; font-size: 1rem; }
+        .article-content ul, .article-content ol { padding-left: 1.5em; }
+        .article-content strong { font-weight: 700; color: var(--accent-color-green-dark); background: linear-gradient(transparent 60%, rgba(76, 175, 80, 0.2) 60%); }
+        .article-content a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+        .article-content a:hover { text-decoration: underline; }
+
+
+        .intro-image-container { /* 導入画像 */
+            margin: 2rem 0; text-align:center;
+        }
+        .intro-image-container img {
+            max-width: 100%; height: auto; border-radius: var(--border-radius-base);
+            box-shadow: var(--box-shadow-strong);
+        }
+        .intro-image-container figcaption {
+            font-size:0.85rem; color:var(--light-text-color); margin-top:0.5rem;
+        }
+
+        .pros-cons-section { /* メリット・デメリット比較 */
+            display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin: 2rem 0;
+        }
+        @media (min-width: 600px) { .pros-cons-section { grid-template-columns: 1fr 1fr; } }
+        .pros-box, .cons-box { padding: 1.5rem; border-radius: var(--border-radius-base); border-width: 1px; border-style: solid; }
+        .pros-box { background: var(--light-green-bg); border-color: var(--accent-color-green); }
+        .cons-box { background: var(--light-orange-bg); border-color: var(--accent-color-orange); }
+        .pros-box h4, .cons-box h4 {
+            margin-top:0; margin-bottom: 1rem; font-family: var(--font-family-heading);
+            font-size: 1.3rem; display: flex; align-items: center;
+        }
+        .pros-box h4 { color: var(--accent-color-green-dark); } .pros-box h4::before { content: '👍'; margin-right: 0.5em; }
+        .cons-box h4 { color: var(--accent-color-orange-dark); } .cons-box h4::before { content: '👎'; margin-right: 0.5em; }
+        .pros-box ul, .cons-box ul { padding-left: 1.2em; font-size: 0.95rem; }
+        .pros-box li, .cons-box li { margin-bottom: 0.4rem; }
+
+
+        .job-finding-tips { /* 仕事の見つけ方 */
+            background: var(--light-blue-bg); border: 1px solid var(--accent-color-blue);
+            padding: 1.5rem; margin: 2rem 0; border-radius: var(--border-radius-base);
+        }
+        .job-finding-tips h3 { color: var(--accent-color-blue) !important; border-left-color: var(--accent-color-blue) !important;}
+        .job-finding-tips ul { list-style-type: '💼 '; padding-left: 1.5em; }
+
+        .preparation-checklist { /* 準備チェックリスト */
+            background: var(--light-yellow-bg); border: 1px solid var(--secondary-color);
+            padding: 1.5rem; margin: 2rem 0; border-radius: var(--border-radius-base);
+        }
+        .preparation-checklist h3 { color: var(--secondary-dark-color) !important; border-left-color: var(--secondary-dark-color) !important;}
+        .preparation-checklist ul { list-style-type: none; padding-left: 0;}
+        .preparation-checklist li {
+            margin-bottom: 0.8rem; position: relative; padding-left: 2rem;
+            background-color: var(--card-background-color); padding-top:0.5rem; padding-bottom:0.5rem; padding-right:0.8rem;
+            border-radius: 6px; border-left: 3px solid var(--secondary-color);
+        }
+        .preparation-checklist li::before { content: '✅'; position:absolute; left:0.5rem; top:0.4em; color:var(--secondary-color);}
+
+
+        .experience-story-box { /* 移住体験談 */
+            background: var(--light-green-bg); border: 1px solid var(--accent-color-green);
+            padding: 1.5rem; margin: 2rem 0; border-radius: var(--border-radius-base);
+        }
+        .experience-story-box h3 { color: var(--accent-color-green-dark) !important; border-left-color: var(--accent-color-green-dark) !important;}
+        .story-item {
+            background: var(--card-background-color); padding: 1.2rem;
+            border-radius: 6px; margin-bottom: 1rem; box-shadow: var(--box-shadow-light);
+        }
+        .story-item h4 {
+            color: var(--accent-color-green-dark); margin-top:0; margin-bottom: 0.5rem; font-size: 1.15rem;
+            display: flex; align-items: center;
+        }
+        .story-item h4::before { content: '🗣️'; margin-right: 0.5em;}
+        .story-item blockquote {
+            border-left: 3px solid var(--accent-color-green); padding-left: 1em;
+            margin: 0.8em 0; font-style: italic; color: var(--light-text-color); font-size:0.95rem;
+        }
+        .story-item cite { display:block; text-align:right; font-size:0.9em; color:var(--text-color); font-weight:500;}
+
+
+        .affiliate-promo-section { /* 移住支援アフィリエイト */
+            background: var(--light-blue-bg); border: 2px dashed var(--primary-color);
+            padding: 2rem; margin: 2.5rem 0; border-radius: var(--border-radius-base); text-align:center;
+        }
+        .affiliate-promo-section h3 {
+            color: var(--primary-dark-color); margin-bottom: 1rem;
+            font-family: var(--font-family-heading); font-size: 1.6rem;
+        }
+        .affiliate-promo-section p {
+            font-size: 1.05rem; color:var(--text-color); max-width:600px; margin:0 auto 1.5rem;
+        }
+        .affiliate-promo-section .cta-button { /* 最初のCTAボタン流用 */
+             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark-color) 100%);
+             box-shadow: 0 4px 10px rgba(41, 121, 255, 0.3);
+        }
+        .affiliate-promo-section .cta-button:hover {
+            background: linear-gradient(135deg, var(--primary-dark-color) 0%, var(--primary-color) 100%);
+            box-shadow: 0 6px 15px rgba(41, 121, 255, 0.4);
+        }
+
+
+        .final-thoughts-section { /* 最後のまとめ */
+            background: var(--accent-color-green); color: white;
+            padding: 2.5rem 2rem; border-radius: var(--border-radius-base);
+            text-align: center; margin: 3rem 0; box-shadow: var(--box-shadow-strong);
+        }
+        .final-thoughts-section h2 { color: white; margin-bottom: 1rem; font-family: var(--font-family-heading); font-size: 1.8rem; border-bottom: none; padding-bottom:0; }
+        .final-thoughts-section p { font-size: 1.05rem; opacity: 0.9; margin-bottom: 1.5rem;}
+        .final-thoughts-section .cta-button { background: white; color: var(--accent-color-green); }
+        .final-thoughts-section .cta-button:hover { background: #f0f0f0; color: var(--accent-color-green-dark); }
+
+
+        .ad-space, .related-articles, footer { /* 前回の記事ページから流用 */ }
+        .ad-space { background: var(--card-background-color); border: 1px dashed var(--border-color); padding: 2.2rem; text-align: center; margin: 3rem auto; color: #aaa; border-radius: var(--border-radius-base); max-width: 728px;}
+        .related-articles { background: var(--card-background-color); padding: 2rem; border-radius: var(--border-radius-base); box-shadow: var(--box-shadow-light); margin: 2.5rem 0; }
+        .related-articles h3 { color: var(--primary-dark-color); margin-bottom: 1.5rem; font-family: var(--font-family-heading); font-size: 1.4rem; text-align: center; }
+        .related-articles ul { list-style: none; padding-left: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:1rem;}
+        .related-articles li { border-bottom: none; padding-bottom: 0; }
+        .related-articles a { color: var(--primary-color); text-decoration: none; font-weight: 500; display: block; padding:0.5rem; background-color:var(--light-blue-bg); border-radius:6px; text-align:center; transition: var(--transition-base);}
+        .related-articles a:hover { text-decoration: none; color: white; background-color:var(--primary-color); transform:scale(1.03);}
+        footer { background: #333740; color: #bdc3c7; padding: 3rem 0 1.5rem; margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; padding: 0 1.5rem; }
+        .footer-content p { color: #95a5a6; font-size: 0.9rem; }
+        .footer-content .footer-links a { color: #bdc3c7; text-decoration: none; margin: 0 0.5rem; transition: color 0.3s; }
+        .footer-content .footer-links a:hover { color: var(--primary-color); }
+
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            main { padding: 1.5rem 1rem; }
+            .article-header { padding: 2rem 1.5rem; }
+            .article-header h1 { font-size: 1.8rem; }
+            .article-content { padding: 1.5rem; }
+            .article-content h2 { font-size: 1.6rem; }
+            .article-content h3 { font-size: 1.3rem; }
+            .pros-cons-section { grid-template-columns: 1fr; }
+        }
+        body { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    </style>
+</head>
+<body>
+    <header id="siteHeader">
+        <nav>
+            <div class="logo">30代からの再スタート</div>
+            <!-- <button class="menu-toggle">☰</button> -->
+            <ul class="nav-menu">
+                <li><a href="../index.html">ホーム</a></li>
+                <li><a href="../start-here/roadmap.html">はじめに</a></li>
+                <li><a href="../career-reinvention/30s-career-strategy.html">キャリア</a></li>
+                <li><a href="../money-finance/30s-money-problems.html">お金</a></li>
+                <li><a href="30s-reset-relationships.html" class="active">ライフスタイル</a></li> <!-- 現在地をactiveに -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-header">
+                <h1>30代からの移住ガイド：都会を離れ、地方で新しい人生を始めるリアルと成功の秘訣</h1>
+                <div class="article-meta">
+                    <span>公開日：2025年5月25日</span> <!-- 仮の日付 -->
+                    <span>更新日：2025年6月10日</span> <!-- 仮の日付 -->
+                    <span>著者：田中 正樹</span>
+                </div>
+                <p>「満員電車から解放されたい」「自然豊かな環境で子育てしたい」「地域に貢献できる仕事がしたい」…そんな想いを胸に、30代で地方移住を考える人が増えています。しかし、憧れだけで移住を決めてしまうと、思わぬ壁にぶつかることも。このページでは、30代の地方移住におけるリアルなメリット・デメリット、後悔しないための仕事の見つけ方、移住前の準備チェックリスト、そして実際に移住を成功させた方々の体験談まで、あなたの新しい一歩を具体的にサポートする情報をお届けします。</p>
+            </header>
+
+             <!-- 目次 (仮) -->
+            <nav class="toc" aria-labelledby="toc-heading">
+                <h3 id="toc-heading">この記事の目次</h3>
+                <ul>
+                    <li><a href="#why-relocate">なぜ今、30代の地方移住が注目されるのか？その魅力とは</a></li>
+                    <li><a href="#pros-cons">地方移住のリアル：メリット・デメリット徹底比較</a>
+                        <ul>
+                            <li><a href="#pros-relocation">メリット編：豊かな自然、低い生活コスト、新しいコミュニティ</a></li>
+                            <li><a href="#cons-relocation">デメリット編：仕事の選択肢、交通の便、人間関係のリアル</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#job-hunting-rural">地方で仕事を見つける方法：転職、起業、リモートワークという選択肢</a></li>
+                    <li><a href="#preparation-checklist">後悔しないための移住準備パーフェクトチェックリスト</a></li>
+                    <li><a href="#experience-stories">【実録】30代移住成功者たちのリアル体験談とアドバイス</a></li>
+                    <li><a href="#support-services-relocation">移住を力強くサポート！おすすめ支援制度・相談窓口（アフィリエイト含む）</a></li>
+                    <li><a href="#summary-relocation">まとめ：30代からの移住は、人生を豊かにする素晴らしい選択肢</a></li>
+                </ul>
+            </nav>
+
+            <div class="intro-image-container">
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cnVyYWwlMjBsYW5kc2NhcGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=700&q=60" alt="美しい田園風景と青空">
+                    <figcaption>自然豊かな環境は、地方移住の大きな魅力の一つです。</figcaption>
+                </figure>
+            </div>
+
+            <div class="ad-space">
+                [Google AdSense 広告スペース]
+            </div>
+
+            <section class="article-content">
+                <h2 id="why-relocate">なぜ今、30代の地方移住が注目されるのか？その魅力とは</h2>
+                <p>近年、働き方の多様化や価値観の変化に伴い、30代を中心に地方移住への関心が高まっています。都会の喧騒や時間に追われる生活から離れ、より人間らしい、自分らしい暮らしを求める動きが加速しているのです。</p>
+                <p>特に30代は、キャリアやライフステージにおいて大きな変化を迎える時期。結婚、出産、子育て、あるいはキャリアの見直しなど、人生の節目で「これからの生き方」を真剣に考えた結果、地方移住という選択肢が浮かび上がるケースは少なくありません。<strong>「仕事中心の生活」から「暮らし全体の豊かさ」へ</strong>と、価値観の軸足がシフトするタイミングでもあるのです。</p>
+
+                <h2 id="pros-cons">地方移住のリアル：メリット・デメリット徹底比較</h2>
+                <p>地方移住には、魅力的な側面がたくさんありますが、一方で事前に理解しておくべき課題やデメリットも存在します。ここでは、代表的なメリットとデメリットを比較し、リアルな実情に迫ります。</p>
+                <div class="pros-cons-section">
+                    <div class="pros-box">
+                        <h4 id="pros-relocation">地方移住の主なメリット</h4>
+                        <ul>
+                            <li><strong>豊かな自然環境：</strong>新鮮な空気、美しい景色、四季の移ろいを身近に感じられる。</li>
+                            <li><strong>低い生活コスト：</strong>特に住居費が都会に比べて格段に安く、経済的な余裕が生まれやすい。</li>
+                            <li><strong>ゆとりのある時間：</strong>通勤時間の短縮や、ストレスの少ない環境で、心身ともにゆとりが持てる。</li>
+                            <li><strong>子育て環境の充実：</strong>待機児童問題の少なさ、地域の見守り体制、自然の中でのびのびと子育てできる。</li>
+                            <li><strong>地域コミュニティとの繋がり：</strong>都会では希薄になりがちな、温かい人間関係や地域活動への参加。</li>
+                            <li><strong>新鮮で美味しい食材：</strong>地元の農産物や海産物など、食の魅力も豊富。</li>
+                            <li><strong>新しい価値観との出会い：</strong>都会とは異なる文化や暮らしに触れることで、視野が広がる。</li>
+                        </ul>
+                    </div>
+                    <div class="cons-box">
+                        <h4 id="cons-relocation">地方移住の主なデメリット・注意点</h4>
+                        <ul>
+                            <li><strong>仕事の選択肢の限定：</strong>都会に比べて求人数や業種が限られる場合がある。</li>
+                            <li><strong>収入減の可能性：</strong>業種や職種によっては、都会よりも給与水準が低いことがある。</li>
+                            <li><strong>交通の便の悪さ：</strong>車社会であることが多く、公共交通機関が不便な地域も。</li>
+                            <li><strong>人間関係の濃密さ：</strong>プライバシーが保ちにくい、地域独自の慣習や付き合いに馴染む必要がある場合も。</li>
+                            <li><strong>娯楽・文化施設の少なさ：</strong>映画館、美術館、多様な飲食店などが少ない。</li>
+                            <li><strong>医療体制の不安：</strong>専門医や高度医療機関が少ない地域もある。</li>
+                            <li><strong>理想と現実のギャップ：</strong>移住前に抱いていたイメージと、実際の暮らしとの間にギャップを感じることも。</li>
+                        </ul>
+                    </div>
+                </div>
+                <p>これらのメリット・デメリットは、移住先の地域や個人の価値観によって大きく感じ方が異なります。<strong>自分にとって何が重要で、何が許容できるのか</strong>を事前にしっかりと考えることが、後悔しない移住への第一歩です。</p>
+
+                <!-- 仕事の見つけ方、準備チェックリストなどのコンテンツを充実させていく -->
+
+                <div class="affiliate-promo-section" id="support-services-relocation"> <!-- idは仮 -->
+                    <h3>あなたの地方移住を全力サポート！まずは情報収集から始めよう</h3>
+                    <p>「移住に興味はあるけど、何から始めればいいかわからない…」「自分に合った地域や仕事はどうやって探すの？」そんなあなたの疑問や不安を解消し、具体的な一歩を後押しする移住支援サービスや情報サイトがあります。多くの自治体も移住相談窓口を設けていますので、まずは気軽に情報収集を始めてみませんか？</p>
+                    <a href="https://example.com/iju-support-af" class="cta-button" target="_blank" rel="noopener noreferrer">おすすめ移住支援サービスを見る (アフィリエイトリンク例)</a>
+                </div>
+
+
+                <div class="final-thoughts-section" id="summary-relocation"> <!-- idは仮 -->
+                    <h2>30代からの移住は、人生を豊かにする素晴らしい選択肢の一つ</h2>
+                    <p>地方移住は、決して楽な道ばかりではありません。しかし、都会では得られない豊かな自然、温かい人との繋がり、そして何よりも「自分らしい暮らし」を手に入れることができる、大きな可能性を秘めた選択です。しっかりと準備をし、現実を見据えながら一歩を踏み出せば、30代からの新しい人生は、きっと想像以上に彩り豊かで充実したものになるでしょう。</p>
+                    <p>このページが、あなたの移住への夢を現実に変えるための一助となれば幸いです。</p>
+                </div>
+            </section>
+
+            <div class="ad-space">
+                [Google AdSense 広告スペース]
+            </div>
+
+            <section class="related-articles">
+                <h3>移住を考えるあなたへのおすすめ記事</h3>
+                <ul>
+                    <li><a href="../career-reinvention/remote-work-guide.html">30代からのリモートワーク完全ガイド：場所を選ばない働き方</a> <!-- 新規ページ想定 -->
+                    <li><a href="30s-kosodate-restart.html">30代・子持ちの人生やり直し術：地方での子育ても視野に</a></li>
+                    <li><a href="../career-reinvention/30s-career-strategy.html">30代のキャリア戦略：移住先での新しい仕事の見つけ方</a></li>
+                    <li><a href="../start-here/roadmap.html">30代人生やり直し 完全ロードマップ</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <span id="currentYearFooter"></span> 30代からの再スタート. All rights reserved.</p>
+            <p class="footer-links" style="margin-top: 0.8rem;">
+                <a href="../contact.html">お問い合わせ</a> |
+                <a href="../privacy-policy.html">プライバシーポリシー</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        // ヘッダーのスクロールエフェクト
+        const header = document.getElementById('siteHeader');
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+        // フッターの年号を動的に
+        const yearSpanFooter = document.getElementById('currentYearFooter');
+        if (yearSpanFooter) {
+            yearSpanFooter.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>
