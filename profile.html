@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIで稼ぐ！静的サイト構築 実践教科書 - 30代からでも遅くない新しいスキル習得</title>
+    <meta name="description" content="ChatGPT, Claude, Perplexityを駆使し、年間維持費5,000円以下で月収50万円を達成した実体験を完全公開。30代からでもマスターできるAIサイト構築の全てを教えます。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2979ff;
+            --primary-dark-color: #1c54b2;
+            --secondary-color: #ffab00; /* LPのキーカラーとして強調 */
+            --secondary-dark-color: #e69500;
+            --accent-color-red: #ff5252; /* CTAボタンや強調したい価格などに使用 */
+            --accent-color-red-dark: #d32f2f;
+
+            --text-color: #333;
+            --light-text-color: #555;
+            --background-color: #f7f9fc;
+            --card-background-color: #ffffff;
+            --border-color: #e0e0e0;
+            --light-yellow-bg: #fffde7; /* ヒーローや価格セクション背景 */
+            --light-green-bg: #e8f8f5; /* ベネフィットや保証 */
+            --light-red-bg: #fff1f0; /* 問題提起 */
+
+            --font-family-base: 'Noto Sans JP', sans-serif;
+            --font-family-heading: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif; /* M PLUS Rounded 1cの800ウェイトも使用 */
+
+            --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --box-shadow-strong: 0 8px 25px rgba(0, 0, 0, 0.12);
+            --border-radius-base: 10px;
+            --transition-base: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            color: var(--text-color);
+            line-height: 1.75;
+            background-color: var(--background-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-bottom: 80px; /* スティッキーCTAの高さ分 */
+        }
+
+        /* LP専用ヘッダー */
+        .lp-header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark-color) 100%);
+            color: white;
+            padding: 1.2rem 1rem; /* 少し厚めに */
+            text-align: center;
+            box-shadow: var(--box-shadow-light);
+        }
+
+        .lp-header-content {
+            max-width: 900px; /* LPなので少し広め */
+            margin: 0 auto;
+        }
+
+        .lp-logo {
+            font-size: 1.8rem; /* ロゴを大きく */
+            font-weight: 800; /* より太くしてインパクト */
+            font-family: var(--font-family-heading);
+            margin-bottom: 0.5rem; /* サブタイトルとの間隔調整 */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .lp-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero {
+            background: var(--light-yellow-bg);
+            padding: 3rem 1rem 4rem; /* パディング調整 */
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color); /* ボーダーを太く */
+        }
+
+        .hero h1 {
+            font-size: 2.4rem; /* スマホも考慮したサイズ */
+            color: var(--secondary-dark-color);
+            margin-bottom: 1rem;
+            font-family: var(--font-family-heading);
+            font-weight: 800;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+        .hero h1 .highlight { /* 強調したい文言 */
+            color: var(--accent-color-red);
+            display: inline-block; /* 改行制御のため */
+        }
+
+
+        .hero .subtitle {
+            font-size: 1.15rem;
+            color: var(--light-text-color);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .results {
+            display: flex;
+            justify-content: center;
+            gap: 2rem; /* 間隔調整 */
+            margin: 2.5rem 0 3rem;
+            flex-wrap: wrap;
+        }
+
+        .result-item {
+            text-align: center;
+            background-color: var(--card-background-color);
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius-base);
+            box-shadow: var(--box-shadow-light);
+            min-width: 150px; /* 最小幅設定 */
+        }
+
+        .result-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: var(--font-family-heading);
+            color: var(--accent-color-red);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .result-label {
+            color: var(--light-text-color);
+            font-size: 0.9rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-color-red) 0%, var(--accent-color-red-dark) 100%);
+            color: white;
+            padding: 1rem 2.5rem; /* パディング調整 */
+            border-radius: 50px; /* 丸みのあるボタン */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.15rem; /* サイズ調整 */
+            font-family: var(--font-family-heading);
+            transition: var(--transition-base), transform 0.2s ease-out;
+            box-shadow: 0 5px 15px rgba(255, 82, 82, 0.4);
+            border: none;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, var(--accent-color-red-dark) 0%, var(--accent-color-red) 100%);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(255, 82, 82, 0.5);
+        }
+        .cta-button.secondary { /* サブCTAなど別色が必要な場合 */
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark-color) 100%);
+            box-shadow: 0 5px 15px rgba(255, 171, 0, 0.4);
+        }
+         .cta-button.secondary:hover {
+            background: linear-gradient(135deg, var(--secondary-dark-color) 0%, var(--secondary-color) 100%);
+            box-shadow: 0 8px 20px rgba(255, 171, 0, 0.5);
+        }
+
+
+        .price-tag { /* ヒーロー内の価格表示 */
+            background: var(--accent-color-red);
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-family: var(--font-family-heading);
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--border-radius-base);
+            margin: 1.5rem 0 2rem;
+            display: inline-block;
+            box-shadow: var(--box-shadow-light);
+        }
+
+        main {
+            max-width: 800px; /* LPのメインコンテンツ幅 */
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+        }
+
+        .lp-section { /* LP用のセクション共通スタイル */
+            background: var(--card-background-color);
+            border-radius: var(--border-radius-base);
+            padding: 2.5rem 2rem; /* パディング調整 */
+            margin: 2.5rem 0;
+            box-shadow: var(--box-shadow-light);
+            border-top: 5px solid var(--primary-color); /* 上部にアクセント */
+        }
+        .lp-section:nth-of-type(odd) { /* セクションごとにアクセントカラーを変える */
+             border-top-color: var(--secondary-color);
+        }
+
+
+        .lp-section h2 {
+            color: var(--primary-dark-color);
+            margin-bottom: 2rem; /* マージン調整 */
+            text-align: center;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--border-color); /* 下線を少し控えめに */
+            font-family: var(--font-family-heading);
+            font-size: 1.8rem; /* サイズ調整 */
+            font-weight: 700;
+        }
+        .lp-section:nth-of-type(odd) h2 {
+            color: var(--secondary-dark-color);
+        }
+
+        /* こんな悩みを抱えていませんか？ */
+        .problems {
+            background: var(--light-red-bg);
+            border-color: var(--accent-color-red); /* 枠線の色を強調 */
+        }
+        .problems ul { list-style: none; padding-left: 0; }
+        .problems li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2.2rem; /* アイコンスペース確保 */
+            font-size: 1.05rem;
+        }
+        .problems li::before {
+            content: '😥'; /* 絵文字変更 */
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem; /* アイコンサイズ調整 */
+            top: -0.1em;
+        }
+
+        /* この教科書で得られるもの */
+        .benefits {
+            background: var(--light-green-bg);
+            border-color: #4CAF50; /* 緑系の枠線 */
+        }
+        .benefits ul { list-style: none; padding-left: 0; }
+        .benefits li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2.2rem;
+            font-size: 1.05rem;
+        }
+        .benefits li::before {
+            content: '🌟'; /* 絵文字変更 */
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+            top: 0.1em;
+        }
+
+        /* 教科書の内容 */
+        .chapters { list-style: none; padding-left: 0; }
+        .chapter {
+            background: #f9f9f9; /* 背景を少し暗く */
+            border: 1px solid var(--border-color);
+            padding: 1.5rem; /* パディング調整 */
+            margin-bottom: 1.2rem;
+            border-radius: var(--border-radius-base);
+            border-left: 5px solid var(--secondary-color); /* 左にアクセント */
+        }
+        .chapter h3 {
+            color: var(--secondary-dark-color);
+            margin-bottom: 0.6rem;
+            font-family: var(--font-family-heading);
+            font-size: 1.25rem;
+        }
+        .chapter p {
+            font-size: 0.95rem;
+            color: var(--light-text-color);
+        }
+
+        /* 著者プロフィール */
+        .author-profile {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem; /* 間隔調整 */
+            background: var(--background-color); /* 背景色変更 */
+            padding: 1.5rem;
+            border-radius: var(--border-radius-base);
+            margin: 2.5rem 0;
+            border: 1px solid var(--border-color);
+        }
+        .author-image {
+            width: 100px; /* サイズ調整 */
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--secondary-color); /* プロフィール画像にアクセント */
+        }
+        .author-profile div h4 {
+            font-family: var(--font-family-heading);
+            color: var(--primary-dark-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        .author-profile div p {
+            font-size: 0.9rem;
+            color: var(--light-text-color);
+            line-height: 1.6;
+        }
+
+        /* 読者の声 */
+        .testimonials {
+            background: #e9eafc; /* 少し紫がかった背景 */
+            border-color: var(--primary-color);
+        }
+        .testimonial {
+            background: var(--card-background-color);
+            border-radius: var(--border-radius-base);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .testimonial p:first-of-type { /* 引用文 */
+             font-style: italic;
+             margin-bottom: 1rem;
+             color: var(--text-color);
+        }
+        .testimonial::before { /* 引用符は削除、または調整 */
+            content: ''; /* 今回は削除 */
+        }
+        .author {
+            text-align: right;
+            color: var(--light-text-color);
+            font-size: 0.9rem;
+            margin-top: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* よくある質問 */
+        .faq {
+            background: var(--light-yellow-bg); /* ヒーローと同じ背景 */
+            border-color: var(--secondary-color);
+        }
+        .faq-item {
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .faq-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .faq-question {
+            font-weight: 700;
+            font-family: var(--font-family-heading);
+            color: var(--secondary-dark-color);
+            margin-bottom: 0.6rem;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        .faq-question::before { /* Q. のマーク */
+            content: 'Q.';
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin-right: 0.5em;
+            font-weight: 800;
+        }
+        .faq-answer {
+            font-size: 0.95rem;
+            padding-left: 2.5em; /* Q. の分インデント */
+        }
+        .faq-answer::before { /* A. のマーク */
+            content: 'A.';
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-right: 0.5em;
+        }
+
+
+        /* 価格セクション */
+        .price-section {
+            background: var(--light-yellow-bg);
+            border: 3px solid var(--secondary-color);
+            text-align: center;
+            padding: 2.5rem 1.5rem; /* パディング調整 */
+        }
+        .price-section h2 { /* このセクション専用の見出し */
+            color: var(--secondary-dark-color);
+            border-bottom-color: var(--secondary-color);
+            font-size: 2rem;
+        }
+        .original-price {
+            font-size: 1.3rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 0.3rem;
+        }
+        .current-price {
+            font-size: 3rem; /* 価格を大きく */
+            color: var(--accent-color-red);
+            font-weight: 800;
+            font-family: var(--font-family-heading);
+            margin-bottom: 0.5rem;
+        }
+        .current-price span { /* (税込) の部分 */
+            font-size: 0.5em;
+            font-weight: 500;
+            color: var(--light-text-color);
+        }
+        .price-section .deadline { /* 期限表示 */
+            color: var(--accent-color-red-dark);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0.5rem 0 2rem;
+            background-color: rgba(255,255,255,0.7);
+            padding: 0.5rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        /* 保証 */
+        .guarantee {
+            background: var(--light-green-bg);
+            border: 3px solid #4CAF50;
+            padding: 2rem;
+            text-align: center;
+            margin: 2.5rem 0;
+        }
+        .guarantee h3 {
+            color: #2e7d32;
+            margin-bottom: 0.8rem;
+            font-family: var(--font-family-heading);
+            font-size: 1.5rem;
+        }
+        .guarantee p {
+            font-size: 1rem;
+        }
+
+        /* 注意書き */
+        .warning {
+            background: var(--light-red-bg);
+            border: 3px solid var(--accent-color-red);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+        .warning h3 {
+            color: var(--accent-color-red-dark);
+            margin-bottom: 0.8rem;
+            font-family: var(--font-family-heading);
+            font-size: 1.5rem;
+        }
+        .warning p {
+            font-size: 1rem;
+        }
+        .warning .remaining-count { /* 残り販売数 */
+            font-weight: 700;
+            color: var(--accent-color-red-dark);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            display: block;
+        }
+
+        /* 購入ボタンセクション */
+        #purchase { /* idへのスタイル */
+            padding-top: 1rem; /* 見出しが隠れないように調整 */
+        }
+        #purchase p {
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        #purchase .purchase-buttons {
+            text-align: center;
+            margin: 2rem 0 1.5rem;
+        }
+        #purchase .cta-button { /* 購入ボタンのスタイル */
+            margin: 0.5rem;
+            padding: 0.9rem 2.2rem; /* 少し小さめでも良いかも */
+        }
+        #purchase .notes {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--light-text-color);
+            line-height: 1.5;
+        }
+
+        /* スティッキーCTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--accent-color-red) 0%, var(--accent-color-red-dark) 100%);
+            text-align: center;
+            padding: 0.8rem 1rem; /* パディング調整 */
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.15);
+            z-index: 1000;
+            animation: slideUpIn 0.5s ease-out forwards; /* 表示アニメーション */
+            opacity: 0; /* 初期は非表示 */
+        }
+        .sticky-cta a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: var(--font-family-heading);
+            font-size: 1.1rem; /* サイズ調整 */
+        }
+        .sticky-cta a .price-highlight { /* 価格を強調 */
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.2em 0.5em;
+            border-radius: 4px;
+            margin-right: 0.5em;
+        }
+
+        @keyframes slideUpIn {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+
+        @media (max-width: 768px) {
+            body { padding-bottom: 70px; } /* スティッキーCTAの高さに合わせて調整 */
+            .lp-logo { font-size: 1.5rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .hero .subtitle { font-size: 1rem; }
+            .results { gap: 1rem; }
+            .result-item { min-width: 120px; padding: 0.8rem 1rem; }
+            .result-value { font-size: 1.8rem; }
+            .cta-button { font-size: 1rem; padding: 0.9rem 2rem; }
+            .price-tag { font-size: 1.2rem; }
+
+            .lp-section { padding: 2rem 1.5rem; }
+            .lp-section h2 { font-size: 1.6rem; }
+            .problems li, .benefits li { font-size: 1rem; padding-left: 2rem;}
+
+            .author-profile { flex-direction: column; text-align: center; }
+            .author-image { margin-bottom: 1rem; }
+
+            .current-price { font-size: 2.5rem; }
+            .sticky-cta { padding: 0.6rem 1rem; }
+            .sticky-cta a { font-size: 1rem; }
+        }
+        body { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    </style>
+</head>
+<body>
+    <header class="lp-header">
+        <div class="lp-header-content">
+            <div class="lp-logo">🚀 AIで稼ぐ！静的サイト構築 実践教科書</div>
+            <p>30代からのスキルチェンジと収入アップを全力サポート</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>AIが可能にした<span class="highlight">「ほぼ無料」</span>のサイト構築で<br>月収50万円を実現しませんか？</h1>
+        <p class="subtitle">専門知識ゼロだった元・商社営業マンが、たった3年で場所に縛られず月50万円稼げるフリーランスになれた全ノウハウを、あなただけに公開します。</p>
+
+        <div class="results">
+            <div class="result-item">
+                <span class="result-value">¥5,000</span>
+                <span class="result-label">サイト年間維持費</span>
+            </div>
+            <div class="result-item">
+                <span class="result-value">¥50万</span>
+                <span class="result-label">達成月収</span>
+            </div>
+            <div class="result-item">
+                <span class="result-value">90%<small>UP</small></span>
+                <span class="result-label">作業効率</span>
+            </div>
+        </div>
+
+        <div class="price-tag">リリース記念価格：9,800円<span style="font-size:0.7em;">（税込）</span></div>
+
+        <a href="#purchase" class="cta-button">今すぐ教科書を手に入れる</a>
+    </section>
+
+    <main>
+        <section class="lp-section problems">
+            <h2>あなたは今、こんなことで悩んでいませんか？</h2>
+            <ul>
+                <li>「プログラミング学習を始めたけど、難しくて挫折しそう…」</li>
+                <li>「Webサイトを作りたいけど、制作会社の見積もりが高すぎる！」</li>
+                <li>「30代から新しいスキルを身につけて副業したいけど、何がいいかわからない」</li>
+                <li>「AIって話題だけど、具体的にどう仕事に活かせるの？」</li>
+                <li>「本当に独学で稼げるようになるのか、正直不安…」</li>
+            </ul>
+            <p style="text-align: center; margin-top: 2rem; font-weight: 500;">もし一つでも当てはまるなら、この教科書はあなたのためのものです。</p>
+        </section>
+
+        <section class="lp-section benefits">
+            <h2>この教科書を手にすることで、あなたは…</h2>
+            <ul>
+                <li>ChatGPT, Claude, Perplexityなど最新AIを使いこなし、サイト制作を劇的に効率化する手法がわかります！</li>
+                <li>高額なサーバー代やツール代は不要！無料・格安ツールだけで高品質なサイトを構築・運営する方法をマスターできます。</li>
+                <li>著者が実際に月収50万円を達成した、生々しい開発ドキュメントと実践的な思考プロセスを追体験できます。</li>
+                <li>AI時代に求められるスキルを習得し、クライアントから選ばれるWeb制作者になるための具体的な戦略が手に入ります。</li>
+                <li>数々の失敗から学んだ貴重な教訓と、それを乗り越えたリアルな解決策を知ることで、あなたの遠回りを防ぎます。</li>
+            </ul>
+        </section>
+
+        <section class="lp-section">
+            <h2>気になる教科書の全貌を初公開！</h2>
+            <ul class="chapters">
+                <li class="chapter">
+                    <h3>第1章：AI革命前夜！なぜ「ほぼ無料」で高機能サイトが作れるのか？</h3>
+                    <p>従来、数百万円規模の投資が必要だったWebサイト構築。それがなぜ、AIの力で年間数千円のコストで実現できるようになったのか？ AIツールの本質的な価値と、それが個人の働き方にもたらすインパクトを徹底解説します。</p>
+                </li>
+                <li class="chapter">
+                    <h3>第2章：涙と笑いのリアル開発日誌：月収50万円達成までの全記録</h3>
+                    <p>私が実際に経験した、数々のエラー、クライアントとの折衝、そしてブレイクスルーの瞬間。赤裸々な失敗談と、そこから得た成功への教訓を、具体的な時系列でドキュメンタリー形式でお届けします。</p>
+                </li>
+                <li class="chapter">
+                    <h3>第3章：AI時代の三種の神器：無料・格安ツールの組み合わせ最適解</h3>
+                    <p>ChatGPT, Claude, Perplexityといった生成AIの使い分け、NetlifyやGitHub Pagesでの無料ホスティング、Vercelの活用法まで。各ツールの特性を理解し、最小コストで最大効果を生むための実践的ツールセットアップ術。</p>
+                </li>
+                <li class="chapter">
+                    <h3>第4章：【コピペOK】AIと二人三脚！「稼げる」サイト構築 実践ステップ</h3>
+                    <p>サイト企画立案から、AIへの指示出し（プロンプトエンジニアリング）、デザイン調整、コーディング補助、そして公開まで。実際の制作フローを、具体的な画面キャプチャとコピペ可能なプロンプト集付きで、手取り足取り解説します。</p>
+                </li>
+                <li class="chapter">
+                    <h3>第5章：スキルを価値に変える！AIサイト構築で「稼ぎ続ける」ための戦略</h3>
+                    <p>作ったスキルをどう収益に繋げるか？ 初心者でも高単価案件を獲得する方法、価格設定の考え方、リピート顧客を増やすためのコミュニケーション術など、フリーランスとして自立するためのビジネス戦略を実例ベースで伝授。</p>
+                </li>
+            </ul>
+        </section>
+
+        <div class="author-profile">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=100&q=80" alt="著者 田中正樹" class="author-image">
+            <div>
+                <h4>著者：田中 正樹（たなか まさき）</h4>
+                <p>元・大手商社営業職（35歳）。32歳で「このままでは後悔する」と一念発起し、安定した会社員生活に終止符を打つ。プログラミング完全未経験からWeb制作の世界へ。AIツールの可能性にいち早く着目し、独自のサイト構築メソッドを確立。現在はフリーランスとして月収50万円以上を安定的に稼ぎながら、自身の経験を発信中。</p>
+            </div>
+        </div>
+
+        <section class="lp-section testimonials">
+            <h2>実際に教科書を読んだ方々から、喜びの声が続々！</h2>
+            <div class="testimonial">
+                <p>「AIの具体的な活用法が満載で、目から鱗でした！ 半信半疑でしたが、この教科書通りに実践したら、本当に副業で月15万円を達成。本業の収入を超える日も近そうです！」</p>
+                <div class="author">H.Kさん（33歳・システムエンジニア）</div>
+            </div>
+            <div class="testimonial">
+                <p>「プログラミング経験ゼロの私でも、AIとの対話形式でサイトが作れるなんて驚きです。第4章のステップ解説が神。3ヶ月で初めての制作案件を獲得できました！」</p>
+                <div class="author">M.Sさん（29歳・事務職）</div>
+            </div>
+            <div class="testimonial">
+                <p>「長年フリーランスでWeb制作をしていますが、AI導入で制作効率が5倍以上になりました。この教科書は、ベテランにも新しい視点を与えてくれる良書です。おかげで受注数を増やせ、収入も3倍に！」</p>
+                <div class="author">Y.Tさん（37歳・フリーランスWebデザイナー）</div>
+            </div>
+        </section>
+
+        <section class="lp-section faq">
+            <h2>よくいただくご質問</h2>
+            <div class="faq-item">
+                <div class="faq-question">プログラミングの知識や経験が全くなくても、本当に大丈夫ですか？</div>
+                <div class="faq-answer">はい、ご安心ください。私自身も最初はHTMLって何？というレベルからのスタートでした。この教科書では、AIツールが複雑なコード生成をサポートしてくれるため、プログラミングの深い知識は必須ではありません。AIへの適切な指示の出し方（プロンプト）が重要であり、その具体的な方法を丁寧に解説しています。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">教科書通りにやれば、誰でも月収50万円を稼げるようになりますか？</div>
+                <div class="faq-answer">月収50万円という数字は、私の実績の一例であり、個人の努力、市場の状況、案件運など様々な要因によって変動します。しかし、この教科書で紹介している手法と戦略を忠実に実践すれば、月収20～30万円レベルを目指すことは十分に現実的です。何よりも、AIを活用して低コストで価値提供できるスキルが身につくことが最大のメリットです。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">AIツールは有料のものが必要ですか？ 教科書代以外に費用はかかりますか？</div>
+                <div class="faq-answer">教科書内では、基本的に無料プランで利用可能なAIツールやサービスを中心に解説しています。一部、より高度な機能を使うために有料プランを推奨するケースもありますが、必須ではありません。サイトの年間維持費も、ドメイン代程度（年間1,000～2,000円）に抑える方法を紹介していますので、高額な追加費用はかかりません。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">教科書の内容は、今後AIツールがアップデートされた場合どうなりますか？</div>
+                <div class="faq-answer">はい、AI技術は日進月歩です。そのため、教科書の内容も定期的に見直し、重要なツールのアップデートや新しい効果的なテクニックが登場した際には、購入者様向けに無料での情報アップデートを予定しています。一度手に取っていただければ、長期的に活用できる内容となっています。</div>
+            </div>
+        </section>
+
+        <section class="lp-section price-section">
+            <h2>さあ、あなたもAI時代の新しい働き方を手に入れましょう！</h2>
+            <div class="original-price">通常価格：19,800円</div>
+            <div class="current-price">9,800円<span>（税込）</span></div>
+            <p class="deadline">🔥 このリリース記念価格は、<span id="deadlineDate"></span>まで！ 🔥</p>
+            <div style="margin: 2.5rem 0;">
+                <a href="#purchase" class="cta-button">今すぐ特別価格で申し込む</a>
+            </div>
+        </section>
+
+        <section class="lp-section guarantee">
+            <h3>もし内容にご満足いただけなければ…<br>【30日間 全額返金保証】をお付けします！</h3>
+            <p>この教科書には、それだけの自信があります。万が一、内容がお役に立てなかった場合、購入後30日以内にお申し出いただければ理由を問わず全額返金いたします。あなたは一切リスクを負うことなく、新しいスキル習得への第一歩を踏み出せます。</p>
+        </section>
+
+        <section class="lp-section warning">
+            <h3>⚠️【重要】このチャンスをお見逃しなく！</h3>
+            <p>このリリース記念特別価格でのご提供は、<strong>限定100部</strong>とさせていただきます。定員に達し次第、予告なく通常価格（19,800円）に戻りますので、ご了承ください。</p>
+            <p class="remaining-count">残り販売数：<span id="remainingUnits">42</span>部</p>
+        </section>
+
+        <section class="lp-section" id="purchase">
+            <h2 style="margin-bottom: 1rem;">お申し込みはこちらから</h2>
+            <p>以下のボタンより、ご希望のお支払いプラットフォームを選択してください。</p>
+            <div class="purchase-buttons">
+                <a href="https://gumroad.com/your-product-dummy-link" class="cta-button secondary" target="_blank" rel="noopener noreferrer">Gumroadで購入する</a>
+                <a href="https://note.com/your-product-dummy-link" class="cta-button secondary" target="_blank" rel="noopener noreferrer">noteで購入する</a>
+            </div>
+            <p class="notes">
+                ※ 各プラットフォームで、クレジットカード、銀行振込、PayPalなど主要な決済方法に対応しています。<br>
+                ※ ご購入後、教科書（PDFファイル形式）がすぐにダウンロード可能になります。
+            </p>
+        </section>
+
+        <section class="lp-section">
+            <h2>最後に、もう一度だけお伝えしたいこと</h2>
+            <p>この教科書は、単なる技術解説書ではありません。私が3年間、試行錯誤を繰り返しながら掴み取った「30代からでも人生は変えられる」という確信と、そのための具体的な方法論を凝縮したものです。</p>
+            <p>AIという強力な追い風が吹いている今こそ、新しいスキルを身につけ、自分らしい働き方を実現する絶好のチャンスです。かつての私のように、今の自分に疑問を感じているなら、ぜひこの教科書を手に取ってみてください。</p>
+            <p>あなたの「再スタート」を、心から応援しています。</p>
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="#purchase" class="cta-button">未来を変える教科書を手に入れる</a>
+            </div>
+        </section>
+    </main>
+
+    <div class="sticky-cta">
+        <a href="#purchase"><span class="price-highlight">特別価格 9,800円</span>で申し込む →</a>
+    </div>
+
+    <script>
+        // ヒーローセクションの価格期限を動的に設定 (例: 1週間後)
+        const deadlineSpan = document.getElementById('deadlineDate');
+        if (deadlineSpan) {
+            const deadline = new Date();
+            deadline.setDate(deadline.getDate() + 7); // 7日後を期限に設定
+            deadlineSpan.textContent = `${deadline.getFullYear()}年${deadline.getMonth() + 1}月${deadline.getDate()}日`;
+        }
+
+        // 残り販売数をランダムに少し減らす (デモ用)
+        const remainingUnitsSpan = document.getElementById('remainingUnits');
+        if (remainingUnitsSpan) {
+            let currentUnits = parseInt(remainingUnitsSpan.textContent);
+            // 0から5の間のランダムな数を引く
+            currentUnits -= Math.floor(Math.random() * 6);
+            if (currentUnits < 5) currentUnits = 5; // 最低でも5は残す
+            remainingUnitsSpan.textContent = currentUnits;
+        }
+
+        // スティッキーCTAの表示タイミング (少しスクロールしたら表示)
+        const stickyCTA = document.querySelector('.sticky-cta');
+        if (stickyCTA) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) { // 300pxスクロールしたら表示
+                    stickyCTA.style.opacity = '1';
+                    stickyCTA.style.transform = 'translateY(0)';
+                } else {
+                    // 再度隠す場合はこちらに処理 (今回は表示しっぱなし)
+                    // stickyCTA.style.opacity = '0';
+                    // stickyCTA.style.transform = 'translateY(100%)';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30代のキャリア戦略：適職発見から天職創造へのロードマップ｜30代からの再スタート</title>
+    <meta name="description" content="今の仕事に満足できない30代へ。自己分析を通じた適職発見、リスキリング戦略、そして情熱を仕事にする天職創造の具体的なステップを解説。キャリアチェンジ実例も多数。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2979ff;
+            --primary-dark-color: #1c54b2;
+            --secondary-color: #ffab00;
+            --secondary-dark-color: #e69500;
+            --accent-color-green: #4caf50; /* 適職・天職 */
+            --accent-color-purple: #9c27b0; /* リスキリング・戦略 */
+            --text-color: #333;
+            --light-text-color: #555;
+            --background-color: #f7f9fc;
+            --card-background-color: #ffffff;
+            --border-color: #e0e0e0;
+            --light-blue-bg: #e3f2fd;   /* 自己分析 */
+            --light-green-bg: #e8f8f5;  /* ステップ・実例 */
+            --light-purple-bg: #f3e5f5; /* リスキリング */
+            --light-yellow-bg: #fffde7; /* 注意点 */
+
+            --font-family-base: 'Noto Sans JP', sans-serif;
+            --font-family-heading: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+
+            --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --box-shadow-strong: 0 8px 25px rgba(0, 0, 0, 0.12);
+            --border-radius-base: 10px;
+            --transition-base: all 0.3s ease-in-out;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-family-base); color: var(--text-color);
+            line-height: 1.8; background-color: var(--background-color);
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ヘッダー（最初のバージョンから流用） */
+        header { background-color: var(--card-background-color); color: var(--text-color); padding: 1rem 1.5rem; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: var(--transition-base); }
+        header.scrolled { padding: 0.75rem 1.5rem; box-shadow: var(--box-shadow-light); }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 700; font-family: var(--font-family-heading); color: var(--primary-color); text-decoration: none; }
+        .nav-menu { display: flex; list-style: none; gap: 2.2rem; margin: 0; }
+        .nav-menu a { color: var(--light-text-color); text-decoration: none; font-weight: 500; font-family: var(--font-family-base); font-size: 0.95rem; transition: color 0.3s; position: relative; padding-bottom: 0.3rem; }
+        .nav-menu a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width 0.3s ease-out; }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--primary-color); }
+        .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+
+
+        main {
+            margin-top: 90px; max-width: 800px; margin-left: auto; margin-right: auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .article-header {
+            background: var(--card-background-color); padding: 2.5rem 2rem;
+            border-radius: var(--border-radius-base); margin-bottom: 2.5rem;
+            box-shadow: var(--box-shadow-light); border-top: 5px solid var(--accent-color-purple); /* キャリア戦略なので紫系アクセント */
+        }
+        .article-header h1 {
+            color: var(--accent-color-purple); /* 見出しも紫系 */ margin-bottom: 1rem;
+            font-family: var(--font-family-heading); font-size: 2.2rem;
+            line-height: 1.4; font-weight: 800; text-align: center;
+        }
+        .article-meta {
+            color: var(--light-text-color); font-size: 0.9rem; display: flex; justify-content:center;
+            flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;
+        }
+        .article-meta span::before { margin-right: 0.4em; opacity: 0.7; }
+        .article-meta span:nth-child(1)::before { content: '📅'; }
+        .article-meta span:nth-child(2)::before { content: '✍️'; }
+        .article-meta span:nth-child(3)::before { content: '👤'; }
+        .article-header > p { font-size: 1.05rem; line-height: 1.7; color: var(--text-color); text-align: center;}
+
+        /* 目次スタイルは他の記事ページから流用 */
+        .toc { background: var(--light-blue-bg); padding: 1.5rem; border-radius: var(--border-radius-base); margin-bottom: 2.5rem; border: 1px solid var(--primary-color); }
+        .toc h3 { font-family: var(--font-family-heading); color: var(--primary-dark-color); margin-bottom: 1rem; font-size: 1.3rem; text-align: center; }
+        .toc ul { list-style: none; padding-left: 0; } .toc li { margin-bottom: 0.5rem; }
+        .toc a { color: var(--primary-color); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+        .toc a:hover { text-decoration: underline; }
+
+
+        .article-content {
+            background: var(--card-background-color); padding: 2rem 2.5rem;
+            border-radius: var(--border-radius-base); box-shadow: var(--box-shadow-light);
+            margin-bottom: 2.5rem;
+        }
+        .article-content h2 {
+            color: var(--primary-dark-color); margin-top: 2.5rem; margin-bottom: 1.2rem;
+            padding-bottom: 0.6rem; border-bottom: 3px solid var(--primary-color);
+            font-family: var(--font-family-heading); font-size: 1.8rem; font-weight: 700;
+        }
+        .article-content h2:first-of-type { margin-top: 0; }
+        .article-content h3 {
+            color: var(--primary-color); margin-top: 2rem; margin-bottom: 1rem;
+            font-family: var(--font-family-heading); font-size: 1.5rem; font-weight: 700;
+            padding-left: 0.8em; border-left: 5px solid var(--primary-color);
+        }
+        .article-content h4 {
+            color: var(--primary-dark-color); margin-top: 1.5rem; margin-bottom: 0.8rem;
+            font-family: var(--font-family-heading); font-size: 1.2rem; font-weight: 700;
+        }
+        .article-content p, .article-content ul, .article-content ol {
+            margin-bottom: 1.2rem; font-size: 1rem;
+        }
+        .article-content ul, .article-content ol { padding-left: 1.5em; }
+        .article-content strong {
+            font-weight: 700; color: var(--accent-color-purple); /* 強調を紫系に */
+            background: linear-gradient(transparent 60%, rgba(156, 39, 176, 0.2) 60%);
+        }
+        .article-content a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+        .article-content a:hover { text-decoration: underline; }
+
+
+        .intro-quote { /* 導入の引用風 */
+            background: var(--light-purple-bg);
+            border-left: 5px solid var(--accent-color-purple);
+            padding: 1.5rem 2rem; margin: 2rem auto;
+            border-radius: 0 var(--border-radius-base) var(--border-radius-base) 0;
+            max-width: 95%; box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+            font-style: italic; text-align: center;
+        }
+        .intro-quote p { font-size: 1.15rem !important; color: var(--accent-color-purple); margin-bottom: 0 !important; line-height: 1.6;}
+
+        .methodology-box { /* 方法論・ステップ提示用 */
+            background: var(--light-blue-bg); border: 1px solid var(--primary-color);
+            padding: 1.5rem; margin: 2rem 0; border-radius: var(--border-radius-base);
+        }
+        .methodology-box h4 {
+            color: var(--primary-dark-color); margin-top:0; margin-bottom: 1rem;
+            font-family: var(--font-family-heading); font-size: 1.3rem; display: flex; align-items: center;
+        }
+        .methodology-box h4::before { content: '🔍'; margin-right: 0.5em; font-size: 1.3em; } /* 自己分析 */
+        .methodology-box.creation h4::before { content: '🛠️'; } /* 天職創造 */
+        .methodology-box ol { padding-left: 0; list-style: none; }
+        .methodology-box li {
+            margin-bottom: 1rem; background-color: var(--card-background-color);
+            padding: 1rem 1.2rem; border-radius: 6px; border-left: 4px solid var(--primary-color);
+            font-weight: 500;
+        }
+        .methodology-box li strong { font-weight:700; color:var(--primary-dark-color); background:none; } /* ボックス内strong */
+        .methodology-box li p { font-size: 0.95rem; color: var(--light-text-color); margin-top:0.3rem; margin-bottom:0;}
+
+
+        .reskilling-strategy { /* リスキリング戦略 */
+            background: var(--light-purple-bg); border: 1px solid var(--accent-color-purple);
+            padding: 1.5rem; margin: 2rem 0; border-radius: var(--border-radius-base);
+        }
+        .reskilling-strategy h3 { /* h3を流用、色だけ変更 */
+            color: var(--accent-color-purple) !important; border-left-color: var(--accent-color-purple) !important;
+        }
+        .reskilling-strategy ul { list-style-type: '💡 '; padding-left: 1.5em; }
+
+        .case-study-grid { /* 実例グリッド */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; margin: 2rem 0;
+        }
+        .case-study-card {
+            background: var(--light-green-bg); border: 1px solid var(--accent-color-green);
+            padding: 1.5rem; border-radius: var(--border-radius-base);
+            box-shadow: var(--box-shadow-light);
+        }
+        .case-study-card h4 {
+            color: var(--accent-color-green-dark); margin-top:0; margin-bottom: 0.8rem;
+            font-family: var(--font-family-heading); font-size: 1.2rem; display: flex; align-items: center;
+        }
+        .case-study-card h4::before { content: '👤'; margin-right: 0.5em; font-size: 1.2em;}
+        .case-study-card .summary { font-weight: 500; margin-bottom: 0.5rem; }
+        .case-study-card .details { font-size: 0.9rem; color: var(--light-text-color); }
+
+        .warning-box { /* 注意点 */
+            background: var(--light-yellow-bg); border: 1px solid var(--secondary-color);
+            padding: 1.5rem; margin: 2rem 0; border-radius: var(--border-radius-base);
+        }
+        .warning-box h4 {
+            color: var(--secondary-dark-color); margin-bottom: 0.8rem;
+            font-family: var(--font-family-heading); font-size: 1.3rem; display: flex; align-items: center;
+        }
+        .warning-box h4::before { content: '⚠️'; margin-right: 0.5em; font-size: 1.3em; }
+        .warning-box ul { padding-left: 1.2em; }
+        .warning-box li { font-size: 0.95rem; margin-bottom: 0.5rem; }
+
+
+        .final-cta-section { /* 最後の行動喚起 */
+            background: var(--primary-color); color: white;
+            padding: 2.5rem 2rem; border-radius: var(--border-radius-base);
+            text-align: center; margin: 3rem 0; box-shadow: var(--box-shadow-strong);
+        }
+        .final-cta-section h2 {
+            color: white; margin-bottom: 1rem; font-family: var(--font-family-heading);
+            font-size: 1.8rem; border-bottom: none; padding-bottom:0;
+        }
+        .final-cta-section p { font-size: 1.05rem; opacity: 0.9; margin-bottom: 1.5rem;}
+        .final-cta-section .cta-button { /* 最初のCTAボタン流用 */
+            background: white; color: var(--primary-color);
+        }
+         .final-cta-section .cta-button:hover {
+            background: #f0f0f0; color: var(--primary-dark-color);
+        }
+
+
+        .ad-space, .related-articles, footer { /* 前回の記事ページから流用 */ }
+        .ad-space { background: var(--card-background-color); border: 1px dashed var(--border-color); padding: 2.2rem; text-align: center; margin: 3rem auto; color: #aaa; border-radius: var(--border-radius-base); max-width: 728px;}
+        .related-articles { background: var(--card-background-color); padding: 2rem; border-radius: var(--border-radius-base); box-shadow: var(--box-shadow-light); margin: 2.5rem 0; }
+        .related-articles h3 { color: var(--primary-dark-color); margin-bottom: 1.5rem; font-family: var(--font-family-heading); font-size: 1.4rem; text-align: center; }
+        .related-articles ul { list-style: none; padding-left: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:1rem;}
+        .related-articles li { border-bottom: none; padding-bottom: 0; }
+        .related-articles a { color: var(--primary-color); text-decoration: none; font-weight: 500; display: block; padding:0.5rem; background-color:var(--light-blue-bg); border-radius:6px; text-align:center; transition: var(--transition-base);}
+        .related-articles a:hover { text-decoration: none; color: white; background-color:var(--primary-color); transform:scale(1.03);}
+        footer { background: #333740; color: #bdc3c7; padding: 3rem 0 1.5rem; margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; padding: 0 1.5rem; }
+        .footer-content p { color: #95a5a6; font-size: 0.9rem; }
+        .footer-content .footer-links a { color: #bdc3c7; text-decoration: none; margin: 0 0.5rem; transition: color 0.3s; }
+        .footer-content .footer-links a:hover { color: var(--primary-color); }
+
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            main { padding: 1.5rem 1rem; }
+            .article-header { padding: 2rem 1.5rem; }
+            .article-header h1 { font-size: 1.8rem; }
+            .article-content { padding: 1.5rem; }
+            .article-content h2 { font-size: 1.6rem; }
+            .article-content h3 { font-size: 1.3rem; }
+            .case-study-grid { grid-template-columns: 1fr; }
+        }
+        body { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    </style>
+</head>
+<body>
+    <header id="siteHeader">
+        <nav>
+            <div class="logo">30代からの再スタート</div>
+            <!-- <button class="menu-toggle">☰</button> -->
+            <ul class="nav-menu">
+                <li><a href="../index.html">ホーム</a></li>
+                <li><a href="../start-here/roadmap.html">はじめに</a></li>
+                <li><a href="30s-tenshoku-mkei.html" class="active">キャリア戦略</a></li> <!-- 現在地をactiveに -->
+                <li><a href="../money-finance/30s-money-problems.html">お金</a></li>
+                <li><a href="../profile.html">プロフィール</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-header">
+                <h1>30代のキャリア戦略：適職発見から「天職」を創造するロードマップ</h1>
+                <div class="article-meta">
+                    <span>公開日：2025年5月1日</span> <!-- 仮の日付 -->
+                    <span>更新日：2025年5月15日</span> <!-- 仮の日付 -->
+                    <span>著者：田中 正樹</span>
+                </div>
+                <p>「今の仕事、本当にこれでいいのかな…？」「もっと自分らしく輝ける仕事があるはず！」30代はキャリアの大きな転換期。漠然とした不安や不満を抱えながらも、何から始めればいいか分からないあなたへ。このページでは、科学的な自己分析に基づいた「適職発見」の方法論、そして情熱とスキルを掛け合わせて「天職を創造する」ための具体的なステップ、さらには時代を生き抜くリスキリング戦略まで、あなたのキャリア再設計を徹底サポートします。</p>
+            </header>
+
+            <!-- 目次 (仮) -->
+            <nav class="toc" aria-labelledby="toc-heading">
+                <h3 id="toc-heading">この記事の目次</h3>
+                <ul>
+                    <li><a href="#why-strategy">なぜ30代にキャリア戦略が必要なのか？現状維持のリスク</a></li>
+                    <li><a href="#find-right-job">STEP1：自分を知る「適職発見」の科学的方法論</a>
+                        <ul>
+                            <li><a href="#self-analysis">価値観・強み・興味関心の深掘り</a></li>
+                            <li><a href="#career-anchor">キャリアアンカー理論とは？</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#create-dream-job">STEP2：情熱を仕事に！「天職創造」への5ステップ</a></li>
+                    <li><a href="#reskilling">STEP3：市場価値を高める「戦略的リスキリング」</a>
+                        <ul>
+                            <li><a href="#trending-skills">今、本当に求められるスキルとは？</a></li>
+                            <li><a href="#effective-learning">30代からの効率的な学習法</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#case-studies">実録！30代キャリアチェンジ成功事例集</a></li>
+                    <li><a href="#pitfalls">キャリア戦略で陥りがちな罠と、その回避法</a></li>
+                    <li><a href="#summary">まとめ：30代こそ、最高のキャリアをデザインできる！</a></li>
+                </ul>
+            </nav>
+
+            <div class="ad-space">
+                [Google AdSense 広告スペース]
+            </div>
+
+            <section class="article-content">
+                <h2 id="why-strategy">なぜ30代にキャリア戦略が必要なのか？現状維持という最大のリスク</h2>
+                <p>20代はがむしゃらに経験を積む時期だったかもしれませんが、30代はこれまでのキャリアを一度棚卸しし、<strong>自分自身の価値観と市場のニーズを照らし合わせながら、主体的にキャリアを設計していく</strong>非常に重要な時期です。「今の会社にいれば安泰」という時代は終わりを告げました。変化の激しい現代において、<strong>現状維持は実は最大のリスク</strong>となり得るのです。</p>
+                <div class="intro-quote">
+                    <p>「人生の目的は、自分を見つけることではない。自分を創造することだ。」<br><small>（ジョージ・バーナード・ショー）</small></p>
+                </div>
+                <p>30代こそ、受け身のキャリアから脱却し、自分自身で「ありたい姿」をデザインし、それを実現するための戦略を練るべきタイミング。このページが、その第一歩となることを願っています。</p>
+
+                <h2 id="find-right-job">STEP1：自分を知ることから始まる「適職発見」の科学的方法論</h2>
+                <p>「自分に合った仕事が分からない…」これは多くの30代が抱える悩みです。しかし、やみくもに求人情報を見る前に、まずは徹底的に「自分自身」を理解することが、適職発見への最短ルートです。</p>
+                <div class="methodology-box">
+                    <h4 id="self-analysis">適職発見のための自己分析3ステップ</h4>
+                    <ol>
+                        <li><strong>価値観の明確化：</strong> あなたが仕事において最も大切にしたいことは何ですか？（例：社会貢献、成長、安定、自由な時間、高い収入など）優先順位をつけてリストアップしましょう。</li>
+                        <li><strong>強みの客観的把握：</strong> これまでの仕事やプライベートで、人から褒められたこと、自然と成果を出せたこと、夢中になれたことは何ですか？客観的なフィードバックも参考に、あなたの「才能」を見つけ出します。ストレングスファインダーなどのツール活用も有効です。</li>
+                        <li><strong>興味・関心の探求：</strong> 仕事とは関係なくても、あなたが純粋に「好き」だと感じること、時間を忘れて没頭できることは何ですか？それが将来の仕事に繋がるヒントになるかもしれません。</li>
+                    </ol>
+                    <p style="margin-top:1rem;"><strong>ポイント：</strong>一人で考え込まず、信頼できる友人やキャリアアドバイザーに壁打ち相手になってもらうと、より客観的な自己理解が深まります。</p>
+                    <p style="text-align:center; margin-top:1.5rem;"><a href="../mindset-analysis/self-analysis-workbook.html" class="cta-button secondary" style="font-size:0.9rem; padding:0.6rem 1.5rem;">無料の自己分析ワークブックはこちら</a></p>
+                </div>
+
+                <h3 id="career-anchor">キャリアアンカー理論：あなたの仕事選びの「軸」を見つける</h3>
+                <p>エドガー・シャイン博士が提唱した「キャリアアンカー」という概念も、適職を見つける上で非常に役立ちます。キャリアアンカーとは、個人がキャリアを選択する際に、<strong>最も犠牲にしたくない価値観や欲求のこと</strong>を指し、以下の8つのタイプに分類されます。</p>
+                <ul>
+                    <li><strong>専門・職能別能力：</strong>特定の分野で専門性を高め、その道のプロとして認められたい。</li>
+                    <li><strong>経営管理能力：</strong>組織全体を管理し、責任ある立場で成果を上げたい。</li>
+                    <li><strong>自律・独立：</strong>自分のやり方やペースで仕事を進め、束縛されたくない。</li>
+                    <li><strong>保障・安定：</strong>経済的な安定や雇用の保障を最優先したい。</li>
+                    <li><strong>起業家的創造性：</strong>新しい何かを創造し、自分の力で事業を立ち上げたい。</li>
+                    <li><strong>奉仕・社会貢献：</strong>社会の役に立つこと、他者を助けることに喜びを感じる。</li>
+                    <li><strong>純粋な挑戦：</strong>困難な課題や競争を乗り越えることにやりがいを感じる。</li>
+                    <li><strong>生活様式（ワークライフバランス）：</strong>仕事と私生活の調和を重視し、豊かなライフスタイルを実現したい。</li>
+                </ul>
+                <p>自分がどのアンカーを最も重視するのかを理解することで、仕事選びの「譲れない軸」が明確になり、ミスマッチを防ぐことができます。</p>
+
+                <!-- STEP2, STEP3, 実例集などのコンテンツを充実させていく -->
+
+                <div class="warning-box">
+                    <h4>⚠️ キャリア戦略で陥りがちな罠と、その回避法</h4>
+                    <ul>
+                        <li><strong>他人の成功事例を鵜呑みにする：</strong>自分と他人では価値観も状況も異なります。あくまで参考程度に留め、自分自身の軸で判断しましょう。</li>
+                        <li><strong>現状への不満だけで転職を繰り返す：</strong>根本的な自己理解がないと、同じ失敗を繰り返す可能性があります。まずは「なぜ不満なのか」を深掘りすることが大切です。</li>
+                        <li><strong>短期的な収入や待遇だけで判断する：</strong>30代のキャリア戦略は長期的な視点が不可欠。目先の条件だけでなく、5年後、10年後の自分の成長や市場価値を考えましょう。</li>
+                        <li><strong>完璧な「天職」を求めすぎる：</strong>最初から100%理想通りの仕事を見つけるのは困難です。「80%満足できれば上出来」くらいの気持ちで、まずは行動してみることが重要です。</li>
+                        <li><strong>行動を先延ばしにしてしまう：</strong>情報収集や自己分析も大切ですが、そればかりに時間を費やして行動が伴わなければ意味がありません。小さな一歩でも良いので、今日から何かを始めてみましょう。</li>
+                    </ul>
+                </div>
+
+                <div class="final-cta-section" id="summary"> <!-- id="summary" は仮 -->
+                    <h2>30代こそ、最高のキャリアをデザインできる！</h2>
+                    <p>「もう30代だから…」と諦める必要は全くありません。むしろ30代は、これまでの経験と、これから先の未来への可能性が最もバランス良く交差する、キャリア戦略を練るのに最高の時期です。自分自身と真剣に向き合い、戦略的に行動すれば、必ずあなたに合った「適職」、そして心から情熱を注げる「天職」は見つかります。</p>
+                    <a href="../start-here/roadmap.html" class="cta-button">人生やり直しロードマップで具体的なステップを見る</a>
+                </div>
+            </section>
+
+            <div class="ad-space">
+                [Google AdSense 広告スペース]
+            </div>
+
+            <section class="related-articles">
+                <h3>キャリア戦略を考える上で役立つ記事</h3>
+                <ul>
+                    <li><a href="30s-tenshoku-mkei.html">30代転職：未経験でも成功する秘訣と求人戦略</a></li>
+                    <li><a href="30s-fukugyo-howto.html">30代からの副業入門：リスクを抑えて収入を増やす方法</a></li>
+                    <li><a href="30s-shikaku-guide.html">30代のための資格取得ガイド：本当に役立つ資格とは？</a></li>
+                    <li><a href="../profile.html">運営者プロフィール：私の30代キャリアチェンジ体験談</a></li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <span id="currentYearFooter"></span> 30代からの再スタート. All rights reserved.</p>
+            <p class="footer-links" style="margin-top: 0.8rem;">
+                <a href="../contact.html">お問い合わせ</a> |
+                <a href="../privacy-policy.html">プライバシーポリシー</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        // ヘッダーのスクロールエフェクト
+        const header = document.getElementById('siteHeader');
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+        // フッターの年号を動的に
+        const yearSpanFooter = document.getElementById('currentYearFooter');
+        if (yearSpanFooter) {
+            yearSpanFooter.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>
