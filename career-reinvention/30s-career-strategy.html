@@ -74,6 +74,9 @@
         /* --- 以下は元のスタイルのまま (一部抜粋) --- */
         nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 700; font-family: var(--font-family-heading); color: var(--primary-color); text-decoration: none; }
+        .logo span { /* ロゴの一部をアクセントカラーに */
+            color: var(--secondary-color);
+        }
         .nav-menu { display: flex; list-style: none; gap: 2.2rem; margin: 0; }
         .nav-menu a { color: var(--light-text-color); text-decoration: none; font-weight: 500; font-family: var(--font-family-base); font-size: 0.95rem; transition: color 0.3s; position: relative; padding-bottom: 0.3rem; }
         .nav-menu a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width 0.3s ease-out; }
