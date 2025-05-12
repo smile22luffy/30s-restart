@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* ===== 上記の修正後CSSをここに挿入 ===== */
         :root {
             --primary-color: #2979ff;
             --primary-dark-color: #1c54b2;
@@ -41,11 +42,36 @@
             font-family: var(--font-family-base); color: var(--text-color);
             line-height: 1.8; background-color: var(--background-color);
             -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+            animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* ===== 変更箇所 ===== */
+        header {
+            background-color: var(--card-background-color);
+            color: var(--text-color);
+            padding: 1rem 1.5rem;
+            position: static; /* 通常のドキュメントフローに戻す */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: var(--transition-base);
         }
 
-        /* ヘッダー（最初のバージョンから流用） */
-        header { background-color: var(--card-background-color); color: var(--text-color); padding: 1rem 1.5rem; position: static !important; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: var(--transition-base); }
-        header.scrolled { padding: 0.75rem 1.5rem; box-shadow: var(--box-shadow-light); }
+        header.scrolled {
+            padding: 0.75rem 1.5rem;
+            /* box-shadow はお好みで */
+        }
+
+        main {
+            margin-top: 2rem; /* ヘッダー下の余白を調整 */
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem 1.5rem;
+        }
+        /* ===== 変更箇所ここまで ===== */
+
+
+        /* --- 以下は元のスタイルのまま (一部抜粋) --- */
         nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 700; font-family: var(--font-family-heading); color: var(--primary-color); text-decoration: none; }
         .nav-menu { display: flex; list-style: none; gap: 2.2rem; margin: 0; }
@@ -54,19 +80,13 @@
         .nav-menu a:hover, .nav-menu a.active { color: var(--primary-color); }
         .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
 
-
-        main {
-            margin-top: 90px; max-width: 800px; margin-left: auto; margin-right: auto;
-            padding: 2rem 1.5rem;
-        }
-
         .article-header {
             background: var(--card-background-color); padding: 2.5rem 2rem;
             border-radius: var(--border-radius-base); margin-bottom: 2.5rem;
-            box-shadow: var(--box-shadow-light); border-top: 5px solid var(--accent-color-purple); /* キャリア戦略なので紫系アクセント */
+            box-shadow: var(--box-shadow-light); border-top: 5px solid var(--accent-color-purple);
         }
         .article-header h1 {
-            color: var(--accent-color-purple); /* 見出しも紫系 */ margin-bottom: 1rem;
+            color: var(--accent-color-purple); margin-bottom: 1rem;
             font-family: var(--font-family-heading); font-size: 2.2rem;
             line-height: 1.4; font-weight: 800; text-align: center;
         }
@@ -81,7 +101,6 @@
         .article-meta span:nth-child(3)::before { content: '👤'; }
         .article-header > p { font-size: 1.05rem; line-height: 1.7; color: var(--text-color); text-align: center;}
 
-        /* 目次スタイルは他の記事ページから流用 */
         .toc { background: var(--light-blue-bg); padding: 1.5rem; border-radius: var(--border-radius-base); margin-bottom: 2.5rem; border: 1px solid var(--primary-color); }
         .toc h3 { font-family: var(--font-family-heading); color: var(--primary-dark-color); margin-bottom: 1rem; font-size: 1.3rem; text-align: center; }
         .toc ul { list-style: none; padding-left: 0; } .toc li { margin-bottom: 0.5rem; }
@@ -114,14 +133,14 @@
         }
         .article-content ul, .article-content ol { padding-left: 1.5em; }
         .article-content strong {
-            font-weight: 700; color: var(--accent-color-purple); /* 強調を紫系に */
+            font-weight: 700; color: var(--accent-color-purple);
             background: linear-gradient(transparent 60%, rgba(156, 39, 176, 0.2) 60%);
         }
         .article-content a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
         .article-content a:hover { text-decoration: underline; }
 
 
-        .intro-quote { /* 導入の引用風 */
+        .intro-quote {
             background: var(--light-purple-bg);
             border-left: 5px solid var(--accent-color-purple);
             padding: 1.5rem 2rem; margin: 2rem auto;
@@ -131,7 +150,7 @@
         }
         .intro-quote p { font-size: 1.15rem !important; color: var(--accent-color-purple); margin-bottom: 0 !important; line-height: 1.6;}
 
-        .methodology-box { /* 方法論・ステップ提示用 */
+        .methodology-box {
             background: var(--light-blue-bg); border: 1px solid var(--primary-color);
             padding: 1.5rem; margin: 2rem 0; border-radius: var(--border-radius-base);
         }
@@ -139,28 +158,28 @@
             color: var(--primary-dark-color); margin-top:0; margin-bottom: 1rem;
             font-family: var(--font-family-heading); font-size: 1.3rem; display: flex; align-items: center;
         }
-        .methodology-box h4::before { content: '🔍'; margin-right: 0.5em; font-size: 1.3em; } /* 自己分析 */
-        .methodology-box.creation h4::before { content: '🛠️'; } /* 天職創造 */
+        .methodology-box h4::before { content: '🔍'; margin-right: 0.5em; font-size: 1.3em; }
+        .methodology-box.creation h4::before { content: '🛠️'; }
         .methodology-box ol { padding-left: 0; list-style: none; }
         .methodology-box li {
             margin-bottom: 1rem; background-color: var(--card-background-color);
             padding: 1rem 1.2rem; border-radius: 6px; border-left: 4px solid var(--primary-color);
             font-weight: 500;
         }
-        .methodology-box li strong { font-weight:700; color:var(--primary-dark-color); background:none; } /* ボックス内strong */
+        .methodology-box li strong { font-weight:700; color:var(--primary-dark-color); background:none; }
         .methodology-box li p { font-size: 0.95rem; color: var(--light-text-color); margin-top:0.3rem; margin-bottom:0;}
 
 
-        .reskilling-strategy { /* リスキリング戦略 */
+        .reskilling-strategy {
             background: var(--light-purple-bg); border: 1px solid var(--accent-color-purple);
             padding: 1.5rem; margin: 2rem 0; border-radius: var(--border-radius-base);
         }
-        .reskilling-strategy h3 { /* h3を流用、色だけ変更 */
+        .reskilling-strategy h3 {
             color: var(--accent-color-purple) !important; border-left-color: var(--accent-color-purple) !important;
         }
         .reskilling-strategy ul { list-style-type: '💡 '; padding-left: 1.5em; }
 
-        .case-study-grid { /* 実例グリッド */
+        .case-study-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem; margin: 2rem 0;
@@ -178,7 +197,7 @@
         .case-study-card .summary { font-weight: 500; margin-bottom: 0.5rem; }
         .case-study-card .details { font-size: 0.9rem; color: var(--light-text-color); }
 
-        .warning-box { /* 注意点 */
+        .warning-box {
             background: var(--light-yellow-bg); border: 1px solid var(--secondary-color);
             padding: 1.5rem; margin: 2rem 0; border-radius: var(--border-radius-base);
         }
@@ -191,7 +210,7 @@
         .warning-box li { font-size: 0.95rem; margin-bottom: 0.5rem; }
 
 
-        .final-cta-section { /* 最後の行動喚起 */
+        .final-cta-section {
             background: var(--primary-color); color: white;
             padding: 2.5rem 2rem; border-radius: var(--border-radius-base);
             text-align: center; margin: 3rem 0; box-shadow: var(--box-shadow-strong);
@@ -201,41 +220,42 @@
             font-size: 1.8rem; border-bottom: none; padding-bottom:0;
         }
         .final-cta-section p { font-size: 1.05rem; opacity: 0.9; margin-bottom: 1.5rem;}
-        .final-cta-section .cta-button { /* 最初のCTAボタン流用 */
-            background: white; color: var(--primary-color);
+        .final-cta-section .cta-button {
+             background: white; color: var(--primary-color); padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: var(--transition-base); border: 2px solid transparent; font-size: 1.1rem;
         }
          .final-cta-section .cta-button:hover {
-            background: #f0f0f0; color: var(--primary-dark-color);
+            background: #f0f0f0; color: var(--primary-dark-color); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
 
-        .ad-space, .related-articles, footer { /* 前回の記事ページから流用 */ }
-        .ad-space { background: var(--card-background-color); border: 1px dashed var(--border-color); padding: 2.2rem; text-align: center; margin: 3rem auto; color: #aaa; border-radius: var(--border-radius-base); max-width: 728px;}
-        .related-articles { background: var(--card-background-color); padding: 2rem; border-radius: var(--border-radius-base); box-shadow: var(--box-shadow-light); margin: 2.5rem 0; }
+        .ad-space, .related-articles { margin: 2.5rem 0; }
+        .ad-space { background: var(--card-background-color); border: 1px dashed var(--border-color); padding: 2.2rem; text-align: center; color: #aaa; border-radius: var(--border-radius-base); max-width: 728px; margin-left: auto; margin-right: auto;}
+        .related-articles { background: var(--card-background-color); padding: 2rem; border-radius: var(--border-radius-base); box-shadow: var(--box-shadow-light); }
         .related-articles h3 { color: var(--primary-dark-color); margin-bottom: 1.5rem; font-family: var(--font-family-heading); font-size: 1.4rem; text-align: center; }
         .related-articles ul { list-style: none; padding-left: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:1rem;}
         .related-articles li { border-bottom: none; padding-bottom: 0; }
         .related-articles a { color: var(--primary-color); text-decoration: none; font-weight: 500; display: block; padding:0.5rem; background-color:var(--light-blue-bg); border-radius:6px; text-align:center; transition: var(--transition-base);}
         .related-articles a:hover { text-decoration: none; color: white; background-color:var(--primary-color); transform:scale(1.03);}
+
         footer { background: #333740; color: #bdc3c7; padding: 3rem 0 1.5rem; margin-top: 4rem; }
         .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; padding: 0 1.5rem; }
         .footer-content p { color: #95a5a6; font-size: 0.9rem; }
+        .footer-content .footer-links { margin-top: 0.8rem; } /* footer-linksにスタイル追加 */
         .footer-content .footer-links a { color: #bdc3c7; text-decoration: none; margin: 0 0.5rem; transition: color 0.3s; }
         .footer-content .footer-links a:hover { color: var(--primary-color); }
 
 
         @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            main { padding: 1.5rem 1rem; }
+            .nav-menu { display: none; } /* ハンバーガーメニューなどを実装する場合は別途対応 */
+            main { padding: 1.5rem 1rem; margin-top: 1.5rem; } /* mainのmargin-topも調整 */
             .article-header { padding: 2rem 1.5rem; }
             .article-header h1 { font-size: 1.8rem; }
             .article-content { padding: 1.5rem; }
             .article-content h2 { font-size: 1.6rem; }
             .article-content h3 { font-size: 1.3rem; }
             .case-study-grid { grid-template-columns: 1fr; }
+            .final-cta-section .cta-button { font-size: 1rem; padding: 0.7rem 1.5rem; }
         }
-        body { animation: fadeIn 0.5s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     </style>
 </head>
@@ -312,7 +332,7 @@
                         <li><strong>興味・関心の探求：</strong> 仕事とは関係なくても、あなたが純粋に「好き」だと感じること、時間を忘れて没頭できることは何ですか？それが将来の仕事に繋がるヒントになるかもしれません。</li>
                     </ol>
                     <p style="margin-top:1rem;"><strong>ポイント：</strong>一人で考え込まず、信頼できる友人やキャリアアドバイザーに壁打ち相手になってもらうと、より客観的な自己理解が深まります。</p>
-                    <p style="text-align:center; margin-top:1.5rem;"><a href="../mindset-analysis/self-analysis-workbook.html" class="cta-button secondary" style="font-size:0.9rem; padding:0.6rem 1.5rem;">無料の自己分析ワークブックはこちら</a></p>
+                    <p style="text-align:center; margin-top:1.5rem;"><a href="../mindset-analysis/self-analysis-workbook.html" class="cta-button secondary" style="font-size:0.9rem; padding:0.6rem 1.5rem; background-color: var(--primary-color); color: white; border-radius: 6px;">無料の自己分析ワークブックはこちら</a></p> <!-- ボタン風スタイルを少し調整 -->
                 </div>
 
                 <h3 id="career-anchor">キャリアアンカー理論：あなたの仕事選びの「軸」を見つける</h3>
@@ -329,9 +349,41 @@
                 </ul>
                 <p>自分がどのアンカーを最も重視するのかを理解することで、仕事選びの「譲れない軸」が明確になり、ミスマッチを防ぐことができます。</p>
 
-                <!-- STEP2, STEP3, 実例集などのコンテンツを充実させていく -->
+                <!-- STEP2, STEP3, 実例集などのコンテンツは現状維持 -->
+                <h2 id="create-dream-job" style="margin-top: 3rem;">STEP2：情熱を仕事に！「天職創造」への5ステップ</h2>
+                <p>（ここに天職創造のステップに関するコンテンツが入ります）</p>
 
-                <div class="warning-box">
+                <div class="reskilling-strategy" id="reskilling">
+                     <h3 style="color: var(--accent-color-purple); border-left-color: var(--accent-color-purple); margin-top:0;">STEP3：市場価値を高める「戦略的リスキリング」</h3>
+                     <p>（ここにリスキリング戦略に関するコンテンツが入ります）</p>
+                     <h4 id="trending-skills" style="color: var(--accent-color-purple); border-left: none; padding-left:0; margin-top:1.5rem;">今、本当に求められるスキルとは？</h4>
+                     <p>（求められるスキルに関する詳細）</p>
+                     <h4 id="effective-learning" style="color: var(--accent-color-purple); border-left: none; padding-left:0; margin-top:1.5rem;">30代からの効率的な学習法</h4>
+                     <p>（効率的な学習法に関する詳細）</p>
+                </div>
+
+
+                <h2 id="case-studies" style="margin-top: 3rem;">実録！30代キャリアチェンジ成功事例集</h2>
+                 <div class="case-study-grid">
+                    <div class="case-study-card">
+                        <h4>営業職からWebマーケターへ</h4>
+                        <p class="summary">Aさん（32歳）</p>
+                        <p class="details">顧客折衝能力を活かしつつ、オンラインスクールでスキル習得。未経験可の求人からスタートし、現在はチームリーダーに。</p>
+                    </div>
+                     <div class="case-study-card">
+                        <h4>事務職からフリーランスデザイナーへ</h4>
+                        <p class="summary">Bさん（35歳）</p>
+                        <p class="details">独学と副業での実績作りを経て独立。時間と場所に縛られない働き方を実現。</p>
+                    </div>
+                     <div class="case-study-card">
+                        <h4>SEから農業経営へ</h4>
+                        <p class="summary">Cさん（38歳）</p>
+                        <p class="details">地方移住し、ITスキルを活用したスマート農業に挑戦。地域貢献にも繋がる。</p>
+                    </div>
+                </div>
+
+
+                <div class="warning-box" id="pitfalls">
                     <h4>⚠️ キャリア戦略で陥りがちな罠と、その回避法</h4>
                     <ul>
                         <li><strong>他人の成功事例を鵜呑みにする：</strong>自分と他人では価値観も状況も異なります。あくまで参考程度に留め、自分自身の軸で判断しましょう。</li>
@@ -367,19 +419,19 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; <span id="currentYearFooter"></span> 30代からの再スタート. All rights reserved.</p>
-            <p class="footer-links" style="margin-top: 0.8rem;">
+            <p>© <span id="currentYearFooter"></span> 30代からの再スタート. All rights reserved.</p>
+            <p class="footer-links"> <!-- style削除 -->
                 <a href="../contact.html">お問い合わせ</a> |
                 <a href="../privacy-policy.html">プライバシーポリシー</a>
             </p>
         </div>
     </footer>
     <script>
-        // ヘッダーのスクロールエフェクト
+        // ヘッダーのスクロールエフェクト (staticの場合、padding変更など軽微な効果に)
         const header = document.getElementById('siteHeader');
         if (header) {
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
+                if (window.scrollY > 50) { // 50pxスクロールしたらクラス付与
                     header.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
