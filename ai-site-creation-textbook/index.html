@@ -3,26 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>30代人生やり直しロードマップ｜新しい人生への完全ガイド</title>
-    <meta name="description" content="30代で人生をやり直したいあなたへ。実体験に基づく実践的なロードマップで、安全かつ確実に新しい人生をスタートさせましょう。">
+    <title>運営者プロフィール｜30代からの再スタート</title>
+    <meta name="description" content="30代で人生をやり直した運営者の体験談とこのサイトに込めた想い">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #2979ff;
             --primary-dark-color: #1c54b2;
             --secondary-color: #ffab00;
             --secondary-dark-color: #e69500;
-            --accent-color-green: #4caf50; /* チェックポイント用 */
-            --accent-color-orange: #ff9800; /* 注意点用 */
             --text-color: #333;
             --light-text-color: #555;
-            --background-color: #f7f9fc;
+            --background-color: #f7f9fc; /* 最初のバージョンの背景色 */
             --card-background-color: #ffffff;
             --border-color: #e0e0e0;
-            --light-blue-bg: #e3f2fd; /* ヒーローやリソース背景 */
-            --light-yellow-bg: #fffde7; /* AIハイライト背景 */
+            --light-blue-bg: #e3f2fd; /* 強調ボックスなどで使用 */
 
             --font-family-base: 'Noto Sans JP', sans-serif;
             --font-family-heading: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
@@ -42,14 +39,14 @@
         body {
             font-family: var(--font-family-base);
             color: var(--text-color);
-            line-height: 1.75;
+            line-height: 1.8; /* プロフィールなので少しゆったりめに */
             background-color: var(--background-color);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ヘッダー（最初のバージョンから流用） */
         header {
+            /* 最初のバージョンのヘッダースタイルを流用 */
             background-color: var(--card-background-color);
             color: var(--text-color);
             padding: 1rem 1.5rem;
@@ -60,10 +57,11 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: var(--transition-base);
         }
-        header.scrolled {
+        header.scrolled { /* スクロール時のヘッダー変化 (JSで制御想定) */
             padding: 0.75rem 1.5rem;
             box-shadow: var(--box-shadow-light);
         }
+
         nav {
             max-width: 1200px;
             margin: 0 auto;
@@ -71,6 +69,7 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .logo {
             font-size: 1.6rem;
             font-weight: 700;
@@ -78,644 +77,541 @@
             color: var(--primary-color);
             text-decoration: none;
         }
-        .nav-menu { display: flex; list-style: none; gap: 2.2rem; margin: 0; }
-        .nav-menu a {
-            color: var(--light-text-color); text-decoration: none; font-weight: 500;
-            font-family: var(--font-family-base); font-size: 0.95rem; transition: color 0.3s;
-            position: relative; padding-bottom: 0.3rem;
-        }
-        .nav-menu a::after {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
-            background-color: var(--primary-color); transition: width 0.3s ease-out;
-        }
-        .nav-menu a:hover, .nav-menu a.active { color: var(--primary-color); }
-        .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+        /* ロゴのspanは今回は不要なためスタイルは省略 */
 
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.2rem;
+            margin: 0;
+        }
+
+        .nav-menu a {
+            color: var(--light-text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-family: var(--font-family-base);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 0.3rem;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease-out;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active { /* activeクラスを想定 */
+            color: var(--primary-color);
+        }
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
 
         main {
-            margin-top: 90px;
-            max-width: 960px; /* ロードマップなので少し幅広に */
+            margin-top: 90px; /* ヘッダーの高さに応じて調整 */
+            max-width: 800px; /* プロフィールページなので少し幅を狭めて読みやすく */
             margin-left: auto;
             margin-right: auto;
-            padding: 2rem 1.5rem;
+            padding: 2rem 1.5rem; /* 上下のパディングも追加 */
         }
 
-        .hero {
+        .profile-header {
             text-align: center;
-            padding: 3rem 1rem;
-            background: linear-gradient(135deg, rgba(41, 121, 255, 0.05) 0%, rgba(247, 249, 252, 0.8) 100%); /* 淡いグラデーション */
+            padding: 2.5rem 1.5rem; /* パディング調整 */
+            background: var(--card-background-color);
             border-radius: var(--border-radius-base);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--box-shadow-light);
         }
 
-        .hero h1 {
-            font-size: 2.4rem; /* スマホも考慮 */
+        .profile-image {
+            width: 160px; /* 少し大きく */
+            height: 160px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem; /* マージン調整 */
+            object-fit: cover;
+            border: 5px solid var(--primary-color); /* ボーダーを少し太く、メインカラーで */
+            box-shadow: 0 0 15px rgba(41, 121, 255, 0.3); /* 画像に軽い影 */
+        }
+
+        .profile-header h1 {
             color: var(--primary-dark-color);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             font-family: var(--font-family-heading);
-            font-weight: 800;
+            font-size: 2rem; /* サイズ調整 */
         }
 
-        .hero p {
-            font-size: 1.1rem;
+        .profile-header .tagline {
             color: var(--light-text-color);
-            max-width: 700px;
-            margin: 0 auto 0.5rem;
+            font-style: normal; /* イタリック解除、より読みやすく */
+            font-size: 1.1rem; /* サイズ調整 */
+            font-family: var(--font-family-base);
         }
 
-        .roadmap-container {
-            position: relative;
-            padding: 2rem 0;
-            overflow: hidden; /* スマホでの横スクロール防止 */
+        .profile-content {
+            background: var(--card-background-color);
+            padding: 2rem 2.5rem; /* パディング調整 */
+            border-radius: var(--border-radius-base);
+            box-shadow: var(--box-shadow-light);
+            margin-bottom: 2.5rem;
         }
 
-        .roadmap-path { /* 縦のライン */
-            position: absolute;
-            left: 40px; /* 左端に寄せる（スマホ表示基準） */
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--light-blue-bg);
-            border-radius: 2px;
-            z-index: 1;
+        .profile-content h2 {
+            color: var(--primary-dark-color);
+            margin-bottom: 1.5rem; /* マージン調整 */
+            border-bottom: 3px solid var(--primary-color); /* 下線をメインカラーで太く */
+            padding-bottom: 0.6rem;
+            font-family: var(--font-family-heading);
+            font-size: 1.6rem; /* サイズ調整 */
+        }
+        .profile-content h2:not(:first-of-type) { /* 最初のh2以外は上マージン */
+            margin-top: 2.5rem;
         }
 
-        .roadmap-section {
-            position: relative;
-            margin-bottom: 3rem; /* セクション間の余白 */
-            padding-left: 80px; /* ノードとラインのスペース確保 */
+
+        .profile-content p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem; /* ベースフォントサイズ */
+            color: var(--text-color);
         }
-        .roadmap-section:last-child {
+        .profile-content p:last-child {
             margin-bottom: 0;
         }
 
-        .roadmap-node { /* 各ステップの丸い番号 */
-            position: absolute;
-            left: 20px; /* roadmap-pathの中心に合わせる */
-            top: 0; /* コンテンツの上端に合わせる */
-            width: 44px; /* サイズ調整 */
-            height: 44px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700; /* 太字 */
-            font-family: var(--font-family-heading);
-            font-size: 1.3rem;
-            z-index: 10;
-            border: 4px solid var(--card-background-color); /* 背景色で縁取り */
-            box-shadow: 0 0 0 4px var(--primary-color); /* 外側にさらにアクセント */
-        }
-
-        .roadmap-content {
-            width: 100%; /* 横幅いっぱい */
-            background: var(--card-background-color);
-            padding: 1.8rem 2rem; /* パディング調整 */
-            border-radius: var(--border-radius-base);
-            box-shadow: var(--box-shadow-light);
-            position: relative; /* 吹き出しの矢印用 */
-        }
-        /* 吹き出し風の矢印（左向き） */
-        .roadmap-content::before {
-            content: "";
-            position: absolute;
-            top: 15px; /* ノードの高さ中央付近に */
-            left: -18px; /* カードの外側へ */
-            border-width: 10px;
-            border-style: solid;
-            border-color: transparent var(--card-background-color) transparent transparent;
-            z-index: 5;
-        }
-        /* スマホでは左右振り分け不要なので、nth-childのスタイルは削除 */
-
-        .roadmap-content h2 { /* Phase X: 〇〇期間 */
-            color: var(--primary-dark-color);
-            margin-bottom: 0.3rem;
-            font-family: var(--font-family-heading);
-            font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        .roadmap-content h3 { /* 各フェーズのタイトル */
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-family: var(--font-family-heading);
-            font-size: 1.6rem;
-            font-weight: 700;
-        }
-
-        .roadmap-content .duration {
-            color: var(--secondary-dark-color);
-            font-weight: 700;
-            font-family: var(--font-family-heading);
-            display: inline-block;
-            margin-bottom: 1rem;
-            background-color: var(--light-yellow-bg);
-            padding: 0.3em 0.8em;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        .roadmap-content .duration::before {
-            content: "🕒 "; /* 時計アイコン */
-        }
-
-        .roadmap-content ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .roadmap-content li {
-            margin-bottom: 0.8rem;
-            position: relative;
-            padding-left: 1.8rem; /* アイコンスペース */
-            font-size: 0.95rem;
-        }
-
-        .roadmap-content li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color-green);
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-
-        .sub-section { /* チェックポイント、注意点、リソースの共通スタイル */
-            padding: 1.2rem;
-            margin: 1.5rem 0 0; /* 上マージンのみ */
-            border-radius: 6px; /* 角丸少し小さめ */
-            border-width: 1px;
-            border-style: solid;
-        }
-        .sub-section h4 {
-            margin-bottom: 0.6rem;
-            font-family: var(--font-family-heading);
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-        }
-        .sub-section h4::before { /* アイコン用スペース */
-            margin-right: 0.5em;
-            font-size: 1.2em;
-        }
-        .sub-section p, .sub-section ul {
-            font-size: 0.9rem;
-            color: var(--light-text-color);
-        }
-        .sub-section ul {
-            padding-left: 1em;
-            list-style-type: disc; /* リソースは通常のリストスタイル */
-        }
-        .sub-section li {
-            padding-left: 0.5em; margin-bottom: 0.3rem;
-        }
-        .sub-section li::before { content: none; } /* 元のチェックマークは消す */
-
-
-        .checkpoint {
-            background: #e8f8f5; /* 淡い緑 */
-            border-color: var(--accent-color-green);
-        }
-        .checkpoint h4 { color: #2e7d32; }
-        .checkpoint h4::before { content: '🎯'; } /* チェックポイントアイコン */
-
-        .warning {
-            background: #fff8e1; /* 淡いオレンジ */
-            border-color: var(--accent-color-orange);
-        }
-        .warning h4 { color: #f57c00; }
-        .warning h4::before { content: '⚠️'; } /* 注意アイコン */
-
-        .resources {
+        .highlight-box {
             background: var(--light-blue-bg);
-            border-color: var(--primary-color);
-        }
-        .resources h4 { color: var(--primary-dark-color); }
-        .resources h4::before { content: '🔗'; } /* リソースアイコン */
-        .resources a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
-        .resources a:hover { text-decoration: underline; }
-
-        .summary { /* 私の実績セクション */
-            background: var(--card-background-color);
-            padding: 2.5rem 2rem;
-            border-radius: var(--border-radius-base);
-            box-shadow: var(--box-shadow-strong); /* 少し強めの影 */
-            margin: 3rem 0;
-            text-align: center;
-            border-top: 5px solid var(--primary-color);
-        }
-
-        .summary h2 {
-            color: var(--primary-dark-color);
-            margin-bottom: 1.5rem;
-            font-family: var(--font-family-heading);
-            font-size: 1.8rem;
-        }
-        .summary > p { /* h2直下のpタグ */
-            font-size: 1.05rem;
-            color: var(--light-text-color);
-            max-width: 650px;
-            margin: 0 auto 2rem;
-        }
-
-
-        .success-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* カラム調整 */
-            gap: 1.5rem;
+            border-left: 5px solid var(--primary-color); /* ボーダーを太く */
+            padding: 1.5rem; /* パディング調整 */
             margin: 2rem 0;
+            border-radius: 0 var(--border-radius-base) var(--border-radius-base) 0; /* 左以外に角丸 */
         }
 
-        .stat-item {
-            text-align: center;
-            padding: 1.2rem 1rem;
-            background: var(--background-color); /* 背景色変更 */
-            border-radius: var(--border-radius-base);
-            border: 1px solid var(--border-color);
-        }
-
-        .stat-value {
-            font-size: 2.2rem;
-            font-weight: 800;
+        .highlight-box h3 {
+            color: var(--primary-dark-color);
+            margin-bottom: 0.8rem;
             font-family: var(--font-family-heading);
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
         }
-
-        .stat-label {
+        .highlight-box p {
+            font-size: 0.95rem;
             color: var(--light-text-color);
-            font-size: 0.9rem;
         }
 
-        /* 最初のバージョンのCTAボタン流用 */
-        .cta-button {
+
+        .ai-experience {
+            /* 最初のバージョンの .ai-textbook-highlight スタイルを参考に */
+            background: linear-gradient(135deg, #fffde7 0%, #fff8e1 100%);
+            border: 2px solid var(--secondary-color);
+            padding: 2rem;
+            border-radius: var(--border-radius-base);
+            margin: 2.5rem 0;
+            box-shadow: var(--box-shadow-light);
+        }
+
+        .ai-experience h3 {
+            color: var(--secondary-dark-color);
+            margin-bottom: 1.2rem;
+            font-family: var(--font-family-heading);
+            font-size: 1.4rem;
+            text-align: center;
+        }
+        .ai-experience h3 .icon { /* HTMLにアイコン追加した場合 */
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark-color) 100%);
+            transform: rotate(-8deg) scale(1.1);
+            margin-right: 0.5rem;
+        }
+
+
+        .ai-experience ul {
+            margin: 1.5rem 0;
+            padding-left: 1.8rem; /* リストのインデント調整 */
+            list-style-type: "✅ "; /* 絵文字のリストマーカー */
+        }
+        .ai-experience ul li {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+
+        .ai-experience .cta-button {
+            /* 最初のバージョンの .cta-button.secondary を参考に */
+            display: block; /* ブロック要素にして中央揃えしやすく */
+            width: fit-content;
+            margin: 1.5rem auto 0;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark-color) 100%);
             color: white;
-            padding: 0.85rem 2rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
             font-family: var(--font-family-heading);
             transition: var(--transition-base), transform 0.2s ease-out;
-            box-shadow: 0 4px 10px rgba(41, 121, 255, 0.25);
-            border: none;
-            font-size: 1rem;
-            margin: 0.5rem; /* ボタン間のマージン */
-        }
-        .cta-button:hover {
-            background: linear-gradient(135deg, var(--primary-dark-color) 0%, var(--primary-color) 100%);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 6px 15px rgba(41, 121, 255, 0.35);
-        }
-        .cta-button.secondary { /* 別色のCTA */
-            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark-color) 100%);
             box-shadow: 0 4px 10px rgba(255, 171, 0, 0.25);
         }
-        .cta-button.secondary:hover {
+
+        .ai-experience .cta-button:hover {
             background: linear-gradient(135deg, var(--secondary-dark-color) 0%, var(--secondary-color) 100%);
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 6px 15px rgba(255, 171, 0, 0.35);
         }
 
-
-        .ai-highlight { /* AI教科書への誘導 */
-            background: var(--light-yellow-bg);
-            border: 2px solid var(--secondary-color);
-            padding: 2rem;
+        .timeline {
             margin: 2.5rem 0;
-            border-radius: var(--border-radius-base);
-            text-align: center;
-            box-shadow: var(--box-shadow-light);
+            position: relative;
+            padding-left: 1.5rem; /* タイムライン全体の左パディング */
+        }
+        .timeline::before { /* 共通の縦ライン */
+            content: '';
+            position: absolute;
+            left: 22px; /* 丸マーカーの中心に合わせる */
+            top: 8px;
+            bottom: 8px;
+            width: 3px;
+            background: var(--light-blue-bg);
+            border-radius: 2px;
         }
 
-        .ai-highlight h2, .ai-highlight h3 { /* h2も使えるように */
-            color: var(--secondary-dark-color);
-            margin-bottom: 1rem;
-            font-family: var(--font-family-heading);
-            font-size: 1.5rem; /* サイズ調整 */
-        }
-        .ai-highlight p {
-            margin-bottom: 1.5rem;
-            color: var(--light-text-color);
-            font-size: 1rem;
-        }
-        .ai-highlight ul {
-            text-align: left;
-            max-width: 500px;
-            margin: 1.5rem auto;
-            padding-left: 2rem;
-            list-style-type: "💡 ";
-        }
-         .ai-highlight ul li {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .next-steps-section { /* 次のステップセクション */
-            background: var(--card-background-color);
-            padding: 2.5rem 2rem;
-            border-radius: var(--border-radius-base);
-            box-shadow: var(--box-shadow-light);
-            margin: 3rem 0;
-            border-top: 5px solid var(--secondary-color);
-        }
-        .next-steps-section h2 {
-             color: var(--secondary-dark-color);
-             text-align: center;
-             margin-bottom: 2rem;
-             font-family: var(--font-family-heading);
-             font-size: 1.8rem;
-        }
-        .next-steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* カラム調整 */
-            gap: 2rem; /* 間隔調整 */
-        }
-        .next-step-item {
-            text-align: center;
-            padding: 1.5rem 1rem;
-            background-color: var(--background-color);
-            border-radius: var(--border-radius-base);
-            border: 1px solid var(--border-color);
+        .timeline-item {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* ボタンを下に揃える */
+            margin-bottom: 2.5rem; /* アイテム間のマージン */
+            position: relative; /* 丸マーカーの基準 */
         }
-        .next-step-item h3 {
+
+        .timeline-item::before { /* 丸マーカー */
+            content: '';
+            position: absolute;
+            left: -2px; /* timelineのpadding-leftと合わせて調整 */
+            top: 6px; /* テキストとの垂直位置調整 */
+            width: 16px; /* マーカーサイズ調整 */
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid var(--card-background-color); /* 背景色で縁取りして浮き上がらせる */
+            z-index: 1; /* 縦ラインより手前に */
+        }
+
+
+        .timeline-year {
+            min-width: 70px; /* 幅調整 */
+            font-weight: 700;
+            color: var(--primary-dark-color);
+            font-family: var(--font-family-heading);
+            font-size: 1.1rem;
+            margin-right: 1.5rem; /* コンテンツとの間隔 */
+            padding-top: 0.1em; /* 微調整 */
+        }
+
+        .timeline-content {
+            /* margin-leftは不要に、flexで配置 */
+        }
+        .timeline-content h3 {
+            font-family: var(--font-family-heading);
+            font-size: 1.2rem;
             color: var(--primary-color);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: var(--light-text-color);
+            margin-bottom: 0;
+        }
+
+        /* 価値観セクションのスタイル */
+        .value-item { /* HTML構造を変更して .value-item で囲むことを想定 */
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--secondary-color); /* アクセントカラー */
+        }
+        .value-item h3 {
+            color: var(--primary-dark-color);
+            margin-bottom: 0.6rem;
             font-family: var(--font-family-heading);
             font-size: 1.3rem;
         }
-        .next-step-item p {
-            margin-bottom: 1.5rem;
+        .value-item p {
             font-size: 0.95rem;
-            color: var(--light-text-color);
-            flex-grow: 1; /* テキストエリアを可変に */
         }
 
 
+        .cta-section {
+            /* 最初のバージョンのCTAボタンを参考に、セクション全体をデザイン */
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark-color) 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius-base);
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: var(--box-shadow-strong);
+        }
+
+        .cta-section h2 {
+            margin-bottom: 1rem;
+            font-family: var(--font-family-heading);
+            font-size: 1.8rem;
+        }
+        .cta-section p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .cta-section .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: var(--font-family-heading);
+            transition: var(--transition-base), transform 0.2s ease-out;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .cta-section .cta-button:hover {
+            background: #f0f0f0; /* ホバー時の色を少し調整 */
+            color: var(--primary-dark-color);
+            transform: translateY(-3px) scale(1.03);
+        }
+
         .ad-space {
+            /* 最初のバージョンのスタイルを流用 */
             background: var(--card-background-color);
             border: 1px dashed var(--border-color);
             padding: 2.2rem;
             text-align: center;
-            margin: 3rem auto;
+            margin: 3rem auto; /* 左右autoで中央寄せ */
             color: #aaa;
             border-radius: var(--border-radius-base);
-            max-width: 728px;
+            max-width: 728px; /* 広告サイズに合わせる */
         }
 
-        /* フッター（最初のバージョンから流用） */
+        .author-signature { /* 最後の署名部分 */
+            text-align: right;
+            margin-top: 2.5rem;
+            color: var(--light-text-color);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
         footer {
-            background: #333740; color: #bdc3c7;
-            padding: 3rem 0 1.5rem; margin-top: 4rem;
+            /* 最初のバージョンのフッタースタイルを流用 */
+            background: #333740;
+            color: #bdc3c7;
+            padding: 3rem 0 1.5rem; /* 下パディング調整 */
+            margin-top: 4rem;
         }
+
         .footer-content {
-            max-width: 1200px; margin: 0 auto; text-align: center; padding: 0 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 1.5rem;
         }
-        .footer-content p { color: #95a5a6; font-size: 0.9rem; }
-        .footer-content .footer-links a {
-            color: #bdc3c7; text-decoration: none; margin: 0 0.5rem; transition: color 0.3s;
+
+        .footer-content p {
+            color: #95a5a6; /* 少し調整 */
+            font-size: 0.9rem;
         }
-        .footer-content .footer-links a:hover { color: var(--primary-color); }
+        .footer-content .footer-links a { /* フッター内リンク */
+            color: #bdc3c7;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+        .footer-content .footer-links a:hover {
+            color: var(--primary-color);
+        }
 
 
         @media (max-width: 768px) {
-            /* スマホ時のナビメニュー対応は省略（前のバージョンと同様） */
-            .nav-menu { display: none; }
-            main { padding: 1.5rem 1rem; }
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
+            .nav-menu {
+                /* 前のバージョンと同様のモバイルメニュー対応 */
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px; /* ヘッダーの高さによる */
+                left: 0;
+                width: 100%;
+                background-color: var(--card-background-color);
+                box-shadow: var(--box-shadow-light);
+                padding: 1rem 0;
+                animation: slideDown 0.3s ease-out; /* アニメーション (キーフレームは省略) */
+                border-top: 1px solid var(--border-color);
+            }
+            .nav-menu.active { display: flex; }
+            /* .menu-toggle (ハンバーガーボタン) のスタイルは省略 (HTMLに追加想定) */
 
-            .roadmap-path { left: 22px; } /* 丸マーカーの中心に */
-            .roadmap-section { padding-left: 55px; } /* ノードのスペース確保 */
-            .roadmap-node { left: 0px; }
-            .roadmap-content::before { display: none; } /* スマホでは吹き出し矢印不要 */
 
-            .summary h2, .next-steps-section h2 { font-size: 1.6rem; }
-            .stat-value { font-size: 1.8rem; }
+            main {
+                padding: 1.5rem 1rem;
+            }
+            .profile-header { padding: 2rem 1rem; }
+            .profile-image { width: 120px; height: 120px; }
+            .profile-header h1 { font-size: 1.7rem; }
+            .profile-header .tagline { font-size: 1rem; }
+
+            .profile-content { padding: 1.5rem; }
+            .profile-content h2 { font-size: 1.4rem; }
+
+            .timeline { padding-left: 1rem; }
+            .timeline::before { left: 12px; } /* マーカー位置調整 */
+            .timeline-item { flex-direction: column; } /* スマホでは縦並び */
+            .timeline-item::before { left: -12px; top: 0.1em; }
+            .timeline-year { margin-bottom: 0.5rem; margin-right: 0; }
+            /* .timeline-content は margin-left 不要 */
+
+            .cta-section { padding: 2rem 1.5rem; }
+            .cta-section h2 { font-size: 1.5rem; }
         }
-        body { animation: fadeIn 0.5s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* slideDown アニメーション (前のバージョンから流用) */
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        body { animation: fadeIn 0.5s ease-out; } /* fadeIn アニメーション (前のバージョンから流用) */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
     </style>
 </head>
 <body>
-    <header id="siteHeader">
+    <header id="siteHeader"> <!-- id追加でJS制御しやすく -->
         <nav>
             <div class="logo">30代からの再スタート</div>
-            <!-- <button class="menu-toggle">☰</button> -->
+            <!-- <button class="menu-toggle">☰</button> モバイル用メニューボタン想定 -->
             <ul class="nav-menu">
                 <li><a href="../index.html">ホーム</a></li>
-                <li><a href="why-this-site.html" class="active">サイトについて</a></li> <!-- 例としてactive -->
+                <li><a href="../start-here/roadmap.html">はじめに</a></li>
                 <li><a href="../career-reinvention/30s-career-strategy.html">キャリア</a></li>
                 <li><a href="../money-finance/30s-money-problems.html">お金</a></li>
-                <li><a href="../profile.html">プロフィール</a></li>
+                <li><a href="../lifestyle-relationships/30s-reset-relationships.html" class="active">人間関係</a></li> <!-- 例としてactiveクラス -->
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <h1>30代<span style="font-size:0.8em; display:inline-block; margin:0 0.2em;">からでも遅くない！</span><br>人生やり直し 完全ロードマップ</h1>
-            <p>「今のままでいいのかな…」その漠然とした不安を、具体的な行動に変える時が来ました。</p>
-            <p>私が実際に3年間で経験した道のりと、そこで見つけ出した最適ルートを、あなたと共有します。</p>
+        <section class="profile-header">
+            <!-- 画像はUnsplashなどから適切なものに差し替えることを推奨 -->
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=200&q=80" alt="運営者 田中 正樹" class="profile-image">
+            <h1>田中 正樹<span style="font-size: 0.7em; color: var(--light-text-color); display: block; margin-top: 0.2em;">（たなか まさき）</span></h1>
+            <p class="tagline">35歳 / 元大手商社マン → 現Web制作者・ブロガー</p>
         </section>
 
-        <div class="roadmap-container">
-            <div class="roadmap-path"></div>
+        <section class="profile-content">
+            <h2>はじめに</h2>
+            <p>はじめまして、田中正樹です。この「30代からの再スタート」にご訪問いただき、心から感謝いたします。現在35歳、Webサイトを作ることを仕事にしながら、自身の経験を発信するブロガーとしても活動しています。</p>
+            <p>今でこそ、好きな場所で時間に縛られず働けるようになりましたが、ほんの3年前までは全く違う人生を歩んでいました。32歳の時、「このままで自分の人生は本当に良いのだろうか？」という、漠然としながらも強烈な疑問と不安に駆られ、大きな決断をしました。それは、安定した会社員生活を捨て、ゼロから人生をやり直すことでした。</p>
+            <p>当時の私は、誰もが知る大手商社で営業マンとして働いていました。朝は満員電車に揺られ、日中は数字に追われ、夜は接待。年収は世間一般で見れば恵まれていたかもしれませんが、心の中は常に空っぽで、「何のために働いているんだろう」という疑問が消えることはありませんでした。</p>
 
-            <div class="roadmap-section">
-                <div class="roadmap-node">1</div>
-                <div class="roadmap-content">
-                    <h2>Phase 1: 自分と向き合う準備期間</h2>
-                    <h3>現状分析と「覚悟」の明確化</h3>
-                    <span class="duration">期間目安：約1ヶ月</span>
-                    <ul>
-                        <li>現在の生活状況（仕事、収入、支出、人間関係）を客観的に棚卸しする。</li>
-                        <li>「なぜ人生をやり直したいのか？」その根本的な理由を深掘りし、言語化する。</li>
-                        <li>もし家族がいれば、想いを伝え、理解と協力を得る努力をする。</li>
-                        <li>挑戦期間中の最低限必要な生活費と、そのための貯金額を具体的に設定する。</li>
-                    </ul>
-                    <div class="sub-section checkpoint">
-                        <h4>このフェーズのゴール</h4>
-                        <p>「なぜ、今、人生をリセットしたいのか？」その理由と目標を、誰にでも論理的に説明できる状態になっていること。</p>
+            <div class="highlight-box">
+                <h3>人生の転機となった一言</h3>
+                <p>忘れもしません、32歳の誕生日。ふと鏡に映る自分を見て、「あと40年、これを続けるのか…？」と呟いた瞬間、背筋が凍るような感覚に襲われました。その強烈な危機感が、私を新しい道へと突き動かす原動力となったのです。</p>
+            </div>
+        </section>
+
+        <section class="profile-content">
+            <h2>わたしの再スタート物語</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2021年</div>
+                    <div class="timeline-content">
+                        <h3>決断と退職</h3>
+                        <p>約10年勤めた商社を退職。手元の貯金400万円を元手に、新しい人生への挑戦を開始。</p>
                     </div>
-                    <div class="sub-section resources">
-                        <h4>役立つサイト内記事</h4>
-                        <ul>
-                            <li><a href="../mindset-analysis/self-analysis-workbook.html">魂の自己分析ワークブック【無料ダウンロード】</a></li>
-                            <li><a href="../mindset-analysis/30s-psychology.html">30代特有の焦りや不安との向き合い方</a></li>
-                        </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2022年</div>
+                    <div class="timeline-content">
+                        <h3>未知への挑戦：プログラミング学習</h3>
+                        <p>Web開発スキルを習得するため、プログラミング学習を開始。最初の半年は専門用語すら理解できず、何度も心が折れそうになる日々。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2023年</div>
+                    <div class="timeline-content">
+                        <h3>小さな成功体験と独立</h3>
+                        <p>学習の傍ら、副業としてWeb制作案件を受注。徐々に実績を積み、月収10万円を達成したことを機にフリーランスとして独立。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2024年</div>
+                    <div class="timeline-content">
+                        <h3>AIとの出会い、そして飛躍</h3>
+                        <p>生成AIツール（ChatGPT, Claudeなど）を本格的に業務へ導入。サイト制作の効率が劇的に向上し、月収50万円を安定的に達成。</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="roadmap-section">
-                <div class="roadmap-node">2</div>
-                <div class="roadmap-content">
-                    <h2>Phase 2: 新しい可能性を探る探索期間</h2>
-                    <h3>情報収集と進むべき方向性の決定</h3>
-                    <span class="duration">期間目安：約2～3ヶ月</span>
-                    <ul>
-                        <li>30代からのキャリアチェンジ事例、独立・起業体験談などを幅広くリサーチする。</li>
-                        <li>興味のある業界や職種の将来性、市場ニーズを分析する。</li>
-                        <li>目標達成のために必要なスキル、資格、経験などを具体的に洗い出す。</li>
-                        <li>選択肢ごとの経済的リスク（初期投資、収入減など）を冷静に評価する。</li>
-                    </ul>
-                    <div class="sub-section warning">
-                        <h4>重要な注意点</h4>
-                        <p>この段階で焦って一つの道に絞り込まないこと。あくまで「情報収集と選択肢の吟味」に徹し、複数の可能性をフラットに比較検討することが後の後悔を防ぎます。</p>
-                    </div>
-                     <div class="sub-section resources">
-                        <h4>役立つサイト内記事</h4>
-                        <ul>
-                            <li><a href="../career-reinvention/30s-career-strategy.html">30代からのキャリア戦略：成功と失敗の分かれ道</a></li>
-                            <li><a href="../money-finance/30s-asset-building.html">30代から始める資産形成の全知識</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <section class="profile-content">
+            <h2>このサイトに込めた想い</h2>
+            <p>人生をやり直す、という道のりは決して平坦ではありませんでした。何度も壁にぶつかり、時には貯金が底をつきかける不安と戦うこともありました。しかし、諦めずに一歩ずつ、本当に小さな一歩を積み重ねた結果、今ではフリーランスとして場所に縛られず、月収50万円以上をコンスタントに稼げるようになりました。</p>
+            <p>このサイトは、かつての私と同じように「30代だけど、今のままでいいのだろうか」「新しいことに挑戦したいけど、何から始めれば…」と悩んでいる方々に向けて、私のリアルな体験談と、実際に役立った具体的なノウハウをお伝えするために立ち上げました。</p>
+            <p>成功談だけでなく、失敗談や泥臭い試行錯誤の過程も包み隠さずお伝えすることで、あなたの「再スタート」を少しでも後押しできればと考えています。</p>
+            <p>特に、AI技術との出会いは私の働き方を一変させました。以前なら専門知識と多くの時間、そして費用が必要だったWebサイト制作が、AIの助けを借りることで、驚くほど低コストかつ短期間で実現可能になったのです。この感動と可能性を、ぜひ多くの方と共有したい。その想いが、AI活用に関する情報発信や、専用の教材作成へと繋がりました。</p>
+        </section>
 
-            <div class="roadmap-section">
-                <div class="roadmap-node">3</div>
-                <div class="roadmap-content">
-                    <h2>Phase 3: 新しい自分を造る基盤構築期間</h2>
-                    <h3>スキル習得と小さな実績作り</h3>
-                    <span class="duration">期間目安：約6～9ヶ月</span>
-                    <ul>
-                        <li>選択した目標分野における基礎スキルを徹底的に習得する（オンライン講座、書籍、スクールなど）。</li>
-                        <li>副業やボランティア、知人の手伝いなどを通じて、小さくても良いので実績を作る。</li>
-                        <li>業界のセミナーや勉強会に参加し、同じ目標を持つ仲間や先輩との人脈を築く。</li>
-                        <li>これまでの実績や学習成果をまとめたポートフォリオや職務経歴書（アップデート版）を作成する。</li>
-                    </ul>
-                    <div class="ai-highlight" style="margin: 1.5rem 0 0; padding: 1.5rem; border-radius: 6px;"> <!-- このセクション専用のAIハイライト -->
-                        <h3>💡 AIでスキル習得が加速する時代！</h3>
-                        <p>私はChatGPTやClaudeを壁打ち相手にすることで、プログラミング学習期間を大幅に短縮できました。AIは最高の家庭教師です。</p>
-                        <a href="../ai-site-creation-textbook/index.html" class="cta-button secondary" style="font-size:0.9rem; padding: 0.6rem 1.5rem;">具体的なAI活用術を見る</a>
-                    </div>
-                    <div class="sub-section checkpoint">
-                        <h4>このフェーズのゴール</h4>
-                        <p>副業レベルで月5万円程度の収入を得られる、または目標分野の基礎スキルを使って実務的なタスクをこなせる自信がついている状態。</p>
-                    </div>
-                </div>
-            </div>
+        <section class="ai-experience">
+            <h3><span class="icon">🚀</span> AIと共に切り拓いた新しい道：私の実体験</h3>
+            <p>2024年、AIツールとの出会いはまさに革命的でした。プログラミングの深い知識がなくても、まるで専属アシスタントがいるかのように、質の高いWebサイトを効率的に制作できるようになったのです。</p>
+            <ul>
+                <li>ChatGPT, Claude, Perplexityなどを組み合わせた独自の開発フロー確立</li>
+                <li>無料・格安ツールを駆使し、サイト年間維持費を5,000円以下に圧縮</li>
+                <li>AIアシストにより、従来比で制作時間を約1/10に短縮</li>
+                <li>結果として、月収が10万円台から50万円台へとジャンプアップ</li>
+            </ul>
+            <p>この実践的なノウハウと具体的な手順を全て凝縮した「AIで稼ぐ！静的サイト構築 実践教科書」を、現在特別に限定公開しています。30代からでも新しいスキルは必ず身につきます。AIという強力なパートナーと共に、あなたも新しい収入の柱を築きませんか？</p>
+            <a href="../ai-site-creation-textbook/index.html" class="cta-button">限定教科書で未来を変える →</a>
+        </section>
 
-            <div class="roadmap-section">
-                <div class="roadmap-node">4</div>
-                <div class="roadmap-content">
-                    <h2>Phase 4: 新しい扉を開く実行期間</h2>
-                    <h3>本格的な転職活動または独立準備</h3>
-                    <span class="duration">期間目安：約3～6ヶ月</span>
-                    <ul>
-                        <li>転職希望の場合：転職エージェントへの登録、求人応募、面接対策を本格化する。</li>
-                        <li>独立・起業希望の場合：事業計画書の作成、資金調達（必要であれば）、開業手続きを進める。</li>
-                        <li>自己PR資料（職務経歴書、ポートフォリオ）を最新の状態に磨き上げる。</li>
-                        <li>万が一に備え、経済的なセーフティネット（生活防衛資金の再確認、公的支援制度の把握）を確保する。</li>
-                    </ul>
-                    <div class="sub-section warning">
-                        <h4>絶対に守るべき鉄則</h4>
-                        <p>特に会社員の方は、現職を退職する前に、次の収入源の目処を確実につけること。安易な退職は禁物です。失業保険や貯金はあくまで補助と考えましょう。</p>
-                    </div>
-                    <div class="sub-section resources">
-                        <h4>役立つサイト内記事</h4>
-                        <ul>
-                            <li><a href="../career-reinvention/30s-tenshoku-mkei.html">30代・未経験でも転職を成功させる秘訣</a></li>
-                            <li><a href="../career-reinvention/30s-dokuritsu-kigyo.html">30代からの独立・起業：現実と準備すべきこと</a></li>
-                        </ul>
-                    </div>
-                </div>
+        <section class="profile-content">
+            <h2>私が大切にしている3つのこと</h2>
+            <div class="value-item"> <!-- HTML構造を変更 -->
+                <h3>1. 正直であること (Honesty)</h3>
+                <p>キラキラした成功談ばかりではなく、失敗や葛藤も含めたありのままの経験を共有します。「月100万円！」のような誇張はせず、リアルな数字と地に足のついた情報をお届けします。</p>
             </div>
-
-             <div class="roadmap-section">
-                <div class="roadmap-node">5</div>
-                <div class="roadmap-content">
-                    <h2>Phase 5: 新しい人生を軌道に乗せる定着・発展期間</h2>
-                    <h3>成果創出とさらなる成長</h3>
-                    <span class="duration">期間目安：約6ヶ月～</span>
-                    <ul>
-                        <li>新しい環境（職場、事業）に早期に適応し、具体的な成果を出すことに集中する。</li>
-                        <li>収入の安定化を図りつつ、さらなるスキルアップやキャリアアップを目指す。</li>
-                        <li>新しい人間関係（同僚、顧客、業界仲間）を積極的に構築し、視野を広げる。</li>
-                        <li>定期的に自身の状況を振り返り、次の目標や挑戦に向けて準備を怠らない。</li>
-                    </ul>
-                    <div class="sub-section checkpoint">
-                        <h4>成功の実感</h4>
-                        <p>経済的な自立はもちろん、精神的な充実感や日々の仕事へのワクワク感を感じられているか？それが新しい人生の成功の証です。</p>
-                    </div>
-                </div>
+            <div class="value-item">
+                <h3>2. 実践的であること (Practicality)</h3>
+                <p>机上の空論ではなく、明日からすぐに試せる具体的なノウハウや、実際に使って効果があったツール・サービスを厳選して紹介します。あなたの行動を促す情報提供を心がけます。</p>
             </div>
-        </div>
+            <div class="value-item">
+                <h3>3. 共感し、寄り添うこと (Empathy)</h3>
+                <p>人生の再スタートは、時に孤独を感じる道のりです。同じように悩み、挑戦する仲間として、あなたの気持ちに寄り添い、共に成長できるような温かい場でありたいと願っています。</p>
+            </div>
+        </section>
 
         <div class="ad-space">
             [Google AdSense 広告スペース]
         </div>
 
-        <section class="summary">
-            <h2>私の3年間「人生やり直し」実績サマリー</h2>
-            <p>このロードマップは、絵に描いた餅ではありません。私が実際に悩み、行動し、そして成果を出してきた道のりを基に作成しています。</p>
-            <div class="success-stats">
-                <div class="stat-item">
-                    <span class="stat-value">約3年</span>
-                    <span class="stat-label">決意から月収50万達成まで</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">400万</span>
-                    <span class="stat-label">挑戦初期の貯金額</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">月50万</span>
-                    <span class="stat-label">現在の安定月収(フリーランス)</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">95%</span>
-                    <span class="stat-label">現在の人生満足度</span>
-                </div>
-            </div>
-            <p>もちろん、これはあくまで一例です。しかし、このロードマップに沿って一歩ずつ進めば、あなたもきっと新しい景色を見ることができるはずです。</p>
-            <div style="margin-top: 2.5rem;">
-                <a href="../experiences-voices/my-restart-story/part1.html" class="cta-button">私の詳細な体験談はこちら</a>
-                <a href="../mindset-analysis/self-analysis-workbook.html" class="cta-button secondary">まずは自己分析から始めたい方へ</a>
-            </div>
+        <section class="cta-section">
+            <h2>さあ、あなたも新しい一歩を。</h2>
+            <p>このサイトが、あなたの「再スタート」の羅針盤となり、勇気と具体的な道筋を示すことができれば、これ以上の喜びはありません。</p>
+            <a href="../start-here/roadmap.html" class="cta-button">人生やり直しロードマップを見る</a>
         </section>
 
-        <section class="ai-highlight">
-            <h2>AIが変えた「人生やり直し」の常識</h2>
-            <p>特に2023年以降、AI技術の進化は目覚ましく、これまでのスキル習得やビジネスのあり方を根本から変えつつあります。この変化は、30代からの再スタートを目指す私たちにとって、とてつもない追い風です。</p>
-            <p>私は、AIツール（ChatGPT, Claude, Perplexityなど）を徹底的に活用することで、プログラミング未経験から短期間でWeb制作者として独立し、年間維持費わずか5,000円のWebサイト運営で月収50万円を達成しました。</p>
-            <h3>その全ノウハウを「AI静的サイト構築 実践教科書」に凝縮！</h3>
-            <ul>
-                <li>主要AIツールの効果的な使い分けと具体的なプロンプト事例</li>
-                <li>無料・格安ツールだけでプロ級のWebサイトを構築する全手順</li>
-                <li>AIを活用したコンテンツ作成、営業、クライアント獲得術</li>
-                <li>私が実際に経験した失敗談と、それを乗り越えたリアルなノウハウ</li>
-            </ul>
-            <a href="../ai-site-creation-textbook/index.html" class="cta-button secondary">限定公開中の教科書をチェックする</a>
-        </section>
-
-        <section class="next-steps-section">
-            <h2>さあ、ロードマップの第一歩を踏み出しましょう</h2>
-            <div class="next-steps-grid">
-                <div class="next-step-item">
-                    <h3>Step 1: 自分を知る</h3>
-                    <p>まずは、あなた自身の強み、価値観、そして本当にやりたいことを見つめ直すことから始めましょう。</p>
-                    <a href="../mindset-analysis/self-analysis-workbook.html" class="cta-button">自己分析ワークブックへ</a>
-                </div>
-                <div class="next-step-item">
-                    <h3>Step 2: 戦略を練る</h3>
-                    <p>30代からのキャリアチェンジには戦略が不可欠。現実的で実現可能なプランを立てるヒントがここにあります。</p>
-                    <a href="../career-reinvention/30s-career-strategy.html" class="cta-button">キャリア戦略記事を読む</a>
-                </div>
-                <div class="next-step-item">
-                    <h3>Step 3: AIを味方につける</h3>
-                    <p>最新のAI技術を活用すれば、スキル習得も収益化も驚くほど効率的に。新しい時代の武器を手に入れましょう。</p>
-                    <a href="../ai-site-creation-textbook/index.html" class="cta-button">AI活用教科書を見る</a>
-                </div>
+        <section class="profile-content">
+            <h2>最後に、あなたへ</h2>
+            <p>人生に「遅すぎる」ということは、決してありません。私自身、30代半ばの今も、毎日が新しい発見と挑戦の連続です。変化を恐れず、一歩を踏み出す勇気さえあれば、未来は必ず変えられます。</p>
+            <p>もし、このサイトや私の経験が少しでもあなたの心に響き、お役に立てたと感じていただけたなら、ぜひ周りの大切な方にもこの場所を教えてあげてください。そして、もしよろしければ、あなたの物語もいつか聞かせてください。</p>
+            <p>共に、自分らしい、後悔のない人生を築いていきましょう。</p>
+            <div class="author-signature">
+                田中 正樹<br>
+                <span id="currentDate"></span> <!-- JSで日付を動的に挿入 -->
             </div>
         </section>
     </main>
@@ -741,11 +637,26 @@
                 }
             });
         }
-        // フッターの年号を動的に
+
+        // フッターの年号と署名の日付を動的に
         const yearSpanFooter = document.getElementById('currentYearFooter');
         if (yearSpanFooter) {
             yearSpanFooter.textContent = new Date().getFullYear();
         }
+        const dateSpan = document.getElementById('currentDate');
+        if (dateSpan) {
+            const today = new Date();
+            dateSpan.textContent = `${today.getFullYear()}年${today.getMonth() + 1}月${today.getDate()}日`;
+        }
+
+        // モバイルメニューの基本的なトグル (ハンバーガーボタンはHTMLに追加してください)
+        // const menuToggle = document.querySelector('.menu-toggle');
+        // const navMenu = document.querySelector('.nav-menu');
+        // if (menuToggle && navMenu) {
+        //     menuToggle.addEventListener('click', () => {
+        //         navMenu.classList.toggle('active');
+        //     });
+        // }
     </script>
 </body>
 </html>
