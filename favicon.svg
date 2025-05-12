@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- 背景円 -->
+  <circle cx="16" cy="16" r="16" fill="#ffffff"/>
+  
+  <!-- 外枠の円 -->
+  <circle cx="16" cy="16" r="14.5" fill="none" stroke="#1a73e8" stroke-width="2"/>
+  
+  <!-- 中央の「30」 -->
+  <text x="16" y="17.5" font-family="Arial, sans-serif" font-weight="bold" font-size="14" 
+        text-anchor="middle" fill="#1a73e8">30</text>
+  
+  <!-- 再スタートを表す矢印 -->
+  <path d="M22,20 C22,20 22,24 16,24 C10,24 10,20 10,20" 
+        fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 矢印の先端 -->
+  <path d="M8,18 L10,20 L12,18" 
+        fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
